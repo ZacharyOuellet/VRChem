@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a3171a039329f04aac5157f1be41155, type: 3}
+  m_Name: Carbon
+  m_EditorClassIdentifier: 
+  m_ID: a632e46c-c066-4cab-aae3-ad53da6d9fe8
+  Name: Carbone
+  Representation: C
+  Connections: 4

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436b2f3e8f74f124990d10f150b2e17f, type: 3}
+  m_Name: Chlore
+  m_EditorClassIdentifier: 
+  m_ID: 3af7f1ee-f9e9-452f-971c-8ca78fa56a6c
+  Name: Chlore
+  Description: Cl2
+  Sprite: {fileID: 0}
+  Atomes:
+  - {fileID: 11400000, guid: d5140e051614dac4fbd4998ef324da63, type: 2}
+  - {fileID: 11400000, guid: d5140e051614dac4fbd4998ef324da63, type: 2}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436b2f3e8f74f124990d10f150b2e17f, type: 3}
+  m_Name: Dihydrogen
+  m_EditorClassIdentifier: 
+  m_ID: b80de02f-1193-4a78-8711-5ae69a81472d
+  Name: "Dihydrog\xE8ne"
+  Description: H2
+  Sprite: {fileID: 0}
+  Atomes:
+  - {fileID: 11400000, guid: 85f9a95459f48534aaf286d5aa221cfc, type: 2}
+  - {fileID: 11400000, guid: 85f9a95459f48534aaf286d5aa221cfc, type: 2}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436b2f3e8f74f124990d10f150b2e17f, type: 3}
+  m_Name: Dioxygen
+  m_EditorClassIdentifier: 
+  m_ID: 975c2bc2-e530-4c5e-a593-d0817c0e0a3d
+  Name: "Dioxyg\xE8ne"
+  Description: O2
+  Sprite: {fileID: 0}
+  Atomes:
+  - {fileID: 11400000, guid: 4d588f6b6ddc5af4ea78ff412f6fad0c, type: 2}
+  - {fileID: 11400000, guid: 4d588f6b6ddc5af4ea78ff412f6fad0c, type: 2}
