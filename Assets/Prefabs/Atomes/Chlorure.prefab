@@ -53,6 +53,10 @@ PrefabInstance:
       value: Chlorure
       objectReference: {fileID: 0}
     - target: {fileID: 4083277277329627894, guid: b115f99997ad9914e9f12aff8e8b19c9, type: 3}
+      propertyPath: atomData
+      value: 
+      objectReference: {fileID: 11400000, guid: d5140e051614dac4fbd4998ef324da63, type: 2}
+    - target: {fileID: 4083277277329627894, guid: b115f99997ad9914e9f12aff8e8b19c9, type: 3}
       propertyPath: atomeData
       value: 
       objectReference: {fileID: 11400000, guid: d5140e051614dac4fbd4998ef324da63, type: 2}

@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 
 [CreateAssetMenu(fileName = "NewAtome", menuName = "Atome")]
-public class AtomeData : ScriptableObject
+public class AtomData : ScriptableObject
 {
     [SerializeField] private string m_ID;
     public string ID => m_ID;

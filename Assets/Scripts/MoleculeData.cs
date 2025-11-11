@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = "NewMolecule", menuName = "Molecule")]
 public class MoleculeData : ScriptableObject
@@ -9,7 +10,7 @@ public class MoleculeData : ScriptableObject
     public string Name;
     public string Description;
     public Sprite Sprite;
-    public AtomeData[] Atomes;
+    public AtomData[] Atoms;
     
     private void OnValidate()
     {

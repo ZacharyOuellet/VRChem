@@ -53,6 +53,10 @@ PrefabInstance:
       value: Fluor
       objectReference: {fileID: 0}
     - target: {fileID: 4083277277329627894, guid: b115f99997ad9914e9f12aff8e8b19c9, type: 3}
+      propertyPath: atomData
+      value: 
+      objectReference: {fileID: 11400000, guid: c84a52aae12f6484e84bbb9167fde0e3, type: 2}
+    - target: {fileID: 4083277277329627894, guid: b115f99997ad9914e9f12aff8e8b19c9, type: 3}
       propertyPath: atomeData
       value: 
       objectReference: {fileID: 11400000, guid: c84a52aae12f6484e84bbb9167fde0e3, type: 2}
