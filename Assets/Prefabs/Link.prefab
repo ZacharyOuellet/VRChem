@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.23, y: 2.323, z: 3.617}
-  m_LocalScale: {x: 0.11, y: 0.11, z: 0.11}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 0.02, y: 0.2, z: 0.02}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -101,6 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _atom1: {fileID: 0}
   _atom2: {fileID: 0}
-  _diameter: 0.06
-  _stretchFactor: 3
-  _maxDiameter: 0.4
+  _diameter: 0.02
+  _stretchFactor: 2
+  _maxDiameter: 0.15

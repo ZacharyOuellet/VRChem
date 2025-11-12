@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   linkPrefab: {fileID: 8810686560614313539, guid: 5340e7e4351b44d4cabc431b443e0b2a, type: 3}
-  repulsionStrength: 1
-  minDistance: 2
+  repulsionStrength: 2
+  minDistance: 0.6
   debugMolecule: {fileID: 11400000, guid: 074168e935400b643ae992e25a26c9d0, type: 2}
   debugAtom1: {fileID: 0}
   debugAtom2: {fileID: 0}
