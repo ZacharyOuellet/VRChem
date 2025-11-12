@@ -103,3 +103,4 @@ MonoBehaviour:
   _atom2: {fileID: 0}
   _diameter: 0.06
   _stretchFactor: 3
+  _maxDiameter: 0.4

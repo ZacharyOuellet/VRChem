@@ -7,6 +7,7 @@ public class MoleculeLink : MonoBehaviour
     [SerializeField] Transform _atom2;
     [SerializeField] float _diameter;
     [SerializeField] float _stretchFactor;
+    [SerializeField] float _maxDiameter = 1f;
     [HideInInspector] public SpringJoint jointRef { get; private set; } = null;
 
     public void Init(Transform atomA, Transform atomB, SpringJoint joint)
@@ -30,6 +31,7 @@ public class MoleculeLink : MonoBehaviour
 
 
         float distance = dir.magnitude;
-        transform.localScale = new Vector3(_diameter*_stretchFactor / distance, distance / 2f, _diameter*_stretchFactor/distance);
+        float diameter = Mathf.Min(_diameter * _stretchFactor / distance, _maxDiameter);
+        transform.localScale = new Vector3(diameter, distance / 2f, diameter);
     }
 }

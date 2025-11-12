@@ -1,9 +1,12 @@
 using System;
 // This is used in the MoleculeManager to create a map of all links 
-public readonly struct IdPair : IEquatable<IdPair>
+using UnityEngine;
+
+[Serializable]
+public struct IdPair : IEquatable<IdPair>
 {
-    public readonly int A;
-    public readonly int B;
+    public int A;
+    public int B;
 
     public IdPair(int a, int b)
     {

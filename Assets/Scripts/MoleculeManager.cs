@@ -1,5 +1,7 @@
 using Meta.WitAi;
 using System.Collections.Generic;
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class MoleculeManager : MonoBehaviour
@@ -7,10 +9,19 @@ public class MoleculeManager : MonoBehaviour
     [SerializeField] GameObject linkPrefab;
 
     private Dictionary<int, Atom> atoms = new();
-    [SerializeField] private Dictionary<IdPair, MoleculeLink> links = new();
+    private Dictionary<IdPair, MoleculeLink> links = new();
+
+    [Header("Repulsion")]
+    [SerializeField] float repulsionStrength = 0.5f;
+    [SerializeField] float minDistance = 0.4f;
 
 
-    // DEBUGGING SECTION-----------------------------------------
+    #region Debugging
+    // DEBUGGING SECTION
+    [Space(5)]
+    [Header("Debugging")]
+    [SerializeField] DebugMolecule debugMolecule = null;
+
     [Header("Adding a link")]
     [SerializeField] Atom debugAtom1 = null;
     [SerializeField] Atom debugAtom2 = null;
@@ -23,6 +34,25 @@ public class MoleculeManager : MonoBehaviour
 
     [SerializeField] bool destroyAllLinks;
 
+    private void createDebugMolecule()
+    {
+        if (debugMolecule == null) return;
+
+        int i = 0;
+        int[] idsTranslation = new int[debugMolecule.atomPrefabs.Count()];
+        foreach (GameObject atom in debugMolecule.atomPrefabs)
+        {
+            GameObject newAtom = Instantiate(atom, transform);
+            newAtom.transform.position += Random.insideUnitSphere;
+            idsTranslation[i++] = newAtom.GetComponent<Atom>().id;
+            AddAtom(newAtom.GetComponent<Atom>());
+        }
+
+        foreach(IdPair link in debugMolecule.links)
+        {
+            CreateLink(idsTranslation[link.A], idsTranslation[link.B]);
+        }
+    }
 
     private void debugCreateLink()
     {
@@ -42,13 +72,19 @@ public class MoleculeManager : MonoBehaviour
             DestroyLink(deleteId1, deleteId2);
         }
     }
-
     // END OF DEBUGGING SECTION
+    #endregion Debugging
 
+    private void Start()
+    {
+        createDebugMolecule();
+    }
 
     private void Update()
     {
-        // For debugging and testing
+        ApplyRepulsion();
+
+        // The rest is for debugging and testing
         if (createLink)
         {
             debugCreateLink();
@@ -164,5 +200,41 @@ public class MoleculeManager : MonoBehaviour
             Destroy(link.gameObject);
         }
         links.Clear();
+    }
+
+    public bool AreLinked(Atom atom1, Atom atom2)
+    {
+        return links.ContainsKey(new IdPair(atom1.id, atom2.id));
+    }
+
+    private void ApplyRepulsion()
+    {
+        foreach(Atom atom in atoms.Values)
+        {
+            foreach (Atom otherAtom in atoms.Values)
+            {
+                if (atom.Equals(otherAtom)) continue;
+                if (AreLinked(atom, otherAtom)) continue;
+                Vector3 delta = otherAtom.transform.position - atom.transform.position;
+                float dist = delta.magnitude;
+                if (dist < minDistance && dist > 0.001f)
+                {
+                    Vector3 force = delta.normalized * (repulsionStrength / (dist * dist));
+                    Debug.DrawRay(atom.transform.position, -force, Color.red);
+                    Debug.DrawRay(otherAtom.transform.position, force, Color.cyan);
+                    atom.rb.AddForce(-force);
+                    otherAtom.rb.AddForce(force);
+                }
+            }
+        }
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        // show the radius of atoms
+        foreach (Atom atom in atoms.Values)
+        {
+            Gizmos.DrawWireSphere(atom.transform.position, minDistance);
+        }
     }
 }
