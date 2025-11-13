@@ -121,6 +121,7 @@ GameObject:
   - component: {fileID: 5589219846885205619}
   - component: {fileID: 1335520611670487520}
   - component: {fileID: 460693287287487968}
+  - component: {fileID: 2781005724487080038}
   m_Layer: 0
   m_Name: Atome de base
   m_TagString: Untagged
@@ -227,6 +228,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &2781005724487080038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3617730721322200431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5658688171b5f645807c269f6dd55cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6692591243637036842
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +252,7 @@ GameObject:
   - component: {fileID: 1293672173786503087}
   - component: {fileID: 2141968431930992272}
   - component: {fileID: 18771602159384676}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -340,7 +353,7 @@ GameObject:
   - component: {fileID: 492791506565461989}
   - component: {fileID: 4163402165834441475}
   - component: {fileID: 4339474510299838382}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
