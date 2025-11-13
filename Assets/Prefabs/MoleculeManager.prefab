@@ -9,7 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2924083560596450849}
-  - component: {fileID: 7206769770008232542}
+  - component: {fileID: 517299814108431424}
+  - component: {fileID: 1881633663669413963}
+  - component: {fileID: 5985315239485364902}
   m_Layer: 0
   m_Name: MoleculeManager
   m_TagString: Untagged
@@ -32,7 +34,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7206769770008232542
+--- !u!114 &517299814108431424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,14 +46,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406209879b464f342bbccd6f20d4bbf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _repulsionStrength: 0.5
+  _minDistance: 0.4
+--- !u!114 &1881633663669413963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021477313015115239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fec9b8674f32624489537e866a78897c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   linkPrefab: {fileID: 8810686560614313539, guid: 5340e7e4351b44d4cabc431b443e0b2a, type: 3}
-  repulsionStrength: 2
-  minDistance: 0.6
-  debugMolecule: {fileID: 11400000, guid: 074168e935400b643ae992e25a26c9d0, type: 2}
-  debugAtom1: {fileID: 0}
-  debugAtom2: {fileID: 0}
-  createLink: 0
-  deleteId1: -1
-  deleteId2: -1
-  destroyLink: 0
-  destroyAllLinks: 0
+--- !u!114 &5985315239485364902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021477313015115239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 350c1cc672ffb484ab7ac3d174efc5e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startingMolecule: {fileID: 11400000, guid: dc802a8bc0845e8449e29b2d2bc2b2a9, type: 2}
+  _atomA: {fileID: 0}
+  _atomB: {fileID: 0}
+  _createLink: 0
+  _id1: -1
+  _id2: -1
+  _destroyLink: 0
+  destroyAll: 0
