@@ -72,6 +72,11 @@ public class MoleculeManager : MonoBehaviour
         return true;
     }
 
+    public bool AreLinked(Atom a, Atom b)
+    {
+        return _graph.AreLinked(a, b);
+    }
+
     public void DestroyLink(int id1, int id2)
     {
         if (!_graph.Atoms.TryGetValue(id1, out Atom a) ||
@@ -82,10 +87,10 @@ public class MoleculeManager : MonoBehaviour
         {
             a.GetComponent<SpringJointManager>().RemoveJoint(link.jointRef);
             b.GetComponent<SpringJointManager>().RemoveJoint(link.jointRef);
-
+            a.rb.linearVelocity = Vector3.zero;
+            b.rb.linearVelocity = Vector3.zero;
             _linkFactory.DestroyLinkObject(link);
         }
-
         _graph.RemoveLink(a, b);
     }
 
@@ -95,7 +100,10 @@ public class MoleculeManager : MonoBehaviour
             _linkFactory.DestroyLinkObject(l);
 
         foreach (var atom in _graph.Atoms.Values)
+        {
             atom.GetComponent<SpringJointManager>().ClearAllJoints();
+            atom.rb.linearVelocity = Vector3.zero;
+        }
 
         _graph.ClearLinks();
     }

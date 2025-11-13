@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 517299814108431424}
   - component: {fileID: 1881633663669413963}
   - component: {fileID: 5985315239485364902}
+  - component: {fileID: 6658963762151923420}
   m_Layer: 0
   m_Name: MoleculeManager
   m_TagString: Untagged
@@ -60,7 +61,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec9b8674f32624489537e866a78897c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _linkPrefab: {fileID: 8810686560614313539, guid: 5340e7e4351b44d4cabc431b443e0b2a, type: 3}
+  linkPrefab: {fileID: 8810686560614313539, guid: 5340e7e4351b44d4cabc431b443e0b2a, type: 3}
 --- !u!114 &5985315239485364902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81,3 +82,20 @@ MonoBehaviour:
   _id2: -1
   _destroyLink: 0
   destroyAll: 0
+--- !u!114 &6658963762151923420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021477313015115239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c29a0a59cd00414589613336e5b2b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LeftGrabbed: {fileID: 0}
+  RightGrabbed: {fileID: 0}
+  _linkCreationThreshold: 0.5
+  _linkDestructionThreshold: 1.5
+  _linkCreationTime: 1

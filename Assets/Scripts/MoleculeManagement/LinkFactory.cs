@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class LinkFactory : MonoBehaviour
 {
-    [SerializeField] GameObject _linkPrefab;
+    [SerializeField] GameObject linkPrefab;
 
     public MoleculeLink CreateLinkObject(Transform a, Transform b, SpringJoint joint)
     {
-        var obj = Instantiate(_linkPrefab, transform);
+        var obj = Instantiate(linkPrefab, transform);
         var link = obj.GetComponent<MoleculeLink>();
         link.Init(a, b, joint);
         return link;
