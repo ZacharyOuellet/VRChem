@@ -96,6 +96,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LeftGrabbed: {fileID: 0}
   RightGrabbed: {fileID: 0}
-  _linkCreationThreshold: 0.5
-  _linkDestructionThreshold: 1.5
-  _linkCreationTime: 1
+  _linkCreationThreshold: 0.3
+  _linkDestructionThreshold: 0.8
+  _linkCreationTime: 0

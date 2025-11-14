@@ -101,6 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _atom1: {fileID: 0}
   _atom2: {fileID: 0}
-  _diameter: 0.02
+  _diameter: 0.005
   _stretchFactor: 2
-  _maxDiameter: 0.15
+  _maxDiameter: 0.025

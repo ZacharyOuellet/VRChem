@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using Oculus.Interaction;
+using Oculus.Interaction.HandGrab;
 
 [RequireComponent(typeof(MoleculeManager))]
 public class LinkCreationManager : MonoBehaviour
@@ -91,6 +93,44 @@ public class LinkCreationManager : MonoBehaviour
 
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(grabbed.transform.position, _linkDestructionThreshold);
+        }
+    }
+
+    public void OnGrab(GameObject obj, Hand hand)
+    {
+        Atom grabbedAtom;
+        if (!obj.TryGetComponent<Atom>(out grabbedAtom))
+            grabbedAtom = obj.GetComponentInParent<Atom>();
+
+        if (grabbedAtom == null) return;
+
+        switch(hand)
+        {
+        case Hand.Left:
+            LeftGrabbed = grabbedAtom;
+            break;
+        case Hand.Right:
+            RightGrabbed = grabbedAtom;
+            break;
+        default:
+            Debug.LogError("Item grabbed by a hand that does not exist : ", obj);
+            break;
+        }
+    }
+
+    public void OnRelease(GameObject obj, Hand hand)
+    {
+        switch (hand)
+        {
+            case Hand.Left:
+                LeftGrabbed = null;
+                break;
+            case Hand.Right:
+                RightGrabbed = null;
+                break;
+            default:
+                Debug.LogError("Item grabbed by a hand that does not exist : ", obj);
+                break;
         }
     }
 }
