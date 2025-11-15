@@ -32,7 +32,8 @@ Transform:
   m_LocalPosition: {x: 0.264, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4018727978862937704}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &517299814108431424
@@ -94,8 +95,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c29a0a59cd00414589613336e5b2b0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LeftGrabbed: {fileID: 0}
-  RightGrabbed: {fileID: 0}
+  _grabbedPair:
+  - {fileID: 0}
+  - {fileID: 0}
   _linkCreationThreshold: 0.3
   _linkDestructionThreshold: 0.8
   _linkCreationTime: 0
+--- !u!1 &7650537858684561899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4018727978862937704}
+  - component: {fileID: 8572297802860022059}
+  m_Layer: 0
+  m_Name: GrabHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4018727978862937704
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7650537858684561899}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.264, y: -1.8, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2924083560596450849}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8572297802860022059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7650537858684561899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 205614bdf73ce46449354efe3627985a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DirectedPtrEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6658963762151923420}
+        m_TargetAssemblyTypeName: LinkCreationManager, Assembly-CSharp
+        m_MethodName: OnPtrEvent
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
