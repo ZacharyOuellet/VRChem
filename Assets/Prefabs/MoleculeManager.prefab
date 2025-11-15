@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406209879b464f342bbccd6f20d4bbf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _repulsionStrength: 0.5
-  _minDistance: 0.4
+  _repulsionStrength: 0.3
+  _minDistance: 0.2
 --- !u!114 &1881633663669413963
 MonoBehaviour:
   m_ObjectHideFlags: 0

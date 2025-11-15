@@ -1,13 +1,14 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 using Oculus.Interaction;
-using Oculus.Interaction.HandGrab;
 
 [RequireComponent(typeof(MoleculeManager))]
 public class LinkCreationManager : MonoBehaviour
 {
-    public Atom LeftGrabbed;
-    public Atom RightGrabbed;
+    public Atom[] _grabbedPair = new Atom[2] { null, null };
+
+    
 
     [Header("Distances")]
     [SerializeField] float _linkCreationThreshold = 0.2f;
@@ -33,7 +34,7 @@ public class LinkCreationManager : MonoBehaviour
     void TryCreateLink()
     {
         if (_createIsRunning) return;
-        if (GetDistance(LeftGrabbed, RightGrabbed) < _linkCreationThreshold)
+        if (GetDistance(_grabbedPair[0], _grabbedPair[1]) < _linkCreationThreshold)
         {
             _createIsRunning = true;
             StartCoroutine(CreateLink());
@@ -45,7 +46,7 @@ public class LinkCreationManager : MonoBehaviour
         float dT = 0;
         while (dT < _linkCreationTime)
         {
-            if (GetDistance(LeftGrabbed, RightGrabbed) > _linkCreationThreshold)
+            if (GetDistance(_grabbedPair[0], _grabbedPair[1]) > _linkCreationThreshold)
             {
                 _createIsRunning = false;
                 yield break;
@@ -54,24 +55,24 @@ public class LinkCreationManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
             dT += Time.deltaTime;
         }
-        _moleculeManager.CreateLink(LeftGrabbed.id, RightGrabbed.id);
+        _moleculeManager.CreateLink(_grabbedPair[0].id, _grabbedPair[1].id);
         _createIsRunning = false;
     }
 
     void TryDestroyLink()
     {
-        if(GetDistance(LeftGrabbed,RightGrabbed) > _linkDestructionThreshold)
+        if(GetDistance(_grabbedPair[0], _grabbedPair[1]) > _linkDestructionThreshold)
         {
-            _moleculeManager.DestroyLink(LeftGrabbed.id, RightGrabbed.id);
+            _moleculeManager.DestroyLink(_grabbedPair[0].id, _grabbedPair[1].id);
             // TODO maybe add an effect (visual, sound and haptics)
         }
     }
 
     void Update()
     {
-        if (LeftGrabbed != null && RightGrabbed != null)
+        if (_grabbedPair[0] != null && _grabbedPair[1] != null)
         {
-            if (_moleculeManager.AreLinked(LeftGrabbed, RightGrabbed))
+            if (_moleculeManager.AreLinked(_grabbedPair[0], _grabbedPair[1]))
             {
                 TryDestroyLink();
             }
@@ -84,7 +85,7 @@ public class LinkCreationManager : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        foreach (var grabbed in new[] { LeftGrabbed, RightGrabbed })
+        foreach (var grabbed in _grabbedPair)
         {
             if (grabbed == null) continue;
 
@@ -96,7 +97,7 @@ public class LinkCreationManager : MonoBehaviour
         }
     }
 
-    public void OnGrab(GameObject obj, Hand hand)
+    public void OnPtrEvent(GameObject obj, PointerEvent pointerEvent)
     {
         Atom grabbedAtom;
         if (!obj.TryGetComponent<Atom>(out grabbedAtom))
@@ -104,33 +105,33 @@ public class LinkCreationManager : MonoBehaviour
 
         if (grabbedAtom == null) return;
 
-        switch(hand)
+        switch(pointerEvent.Type)
         {
-        case Hand.Left:
-            LeftGrabbed = grabbedAtom;
-            break;
-        case Hand.Right:
-            RightGrabbed = grabbedAtom;
-            break;
-        default:
-            Debug.LogError("Item grabbed by a hand that does not exist : ", obj);
-            break;
-        }
-    }
-
-    public void OnRelease(GameObject obj, Hand hand)
-    {
-        switch (hand)
-        {
-            case Hand.Left:
-                LeftGrabbed = null;
+            case PointerEventType.Select:
+                if (_grabbedPair[0] == null)
+                {
+                    _grabbedPair[0] = grabbedAtom;
+                }
+                else
+                {
+                    _grabbedPair[1] = grabbedAtom;
+                }
                 break;
-            case Hand.Right:
-                RightGrabbed = null;
+            case PointerEventType.Unselect:
+                if (_grabbedPair[0] == grabbedAtom)
+                {
+                    _grabbedPair[0] = null;
+                }
+                else if (_grabbedPair[1] == grabbedAtom)
+                {
+                    _grabbedPair[1] = null;
+                }
+                else
+                {
+                    Debug.LogWarning("An atom was dropped but was not considered picked up before, there is probably an error somewhere");
+                }
                 break;
-            default:
-                Debug.LogError("Item grabbed by a hand that does not exist : ", obj);
-                break;
+            default: break;
         }
     }
 }
