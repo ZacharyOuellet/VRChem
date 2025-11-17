@@ -292,11 +292,125 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5985315239485364902, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: _startingMolecule
+      value: 
+      objectReference: {fileID: 11400000, guid: ccbcd22c6ae7fa346b5b9412f9c00c26, type: 2}
+    - target: {fileID: 8572297802860022059, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: DirectedPtrEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572297802860022059, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: DirectedPtrEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 4149331648528180571}
+    - target: {fileID: 8572297802860022059, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: DirectedPtrEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572297802860022059, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: DirectedPtrEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: handleReleaseAtom
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572297802860022059, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: DirectedPtrEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: MenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8572297802860022059, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: DirectedPtrEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+--- !u!1 &1768334780
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1768334783}
+  - component: {fileID: 1768334782}
+  - component: {fileID: 1768334781}
+  m_Layer: 0
+  m_Name: '[BuildingBlock] Controller Buttons Mapper'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1768334781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768334780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d376240d064f4484e81824d51391caf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonClickActions:
+  - Title: test
+    Button: 0
+    ButtonMode: 0
+    InputActionReference: {fileID: -3360297884934223091, guid: 2ef1e8134baafed43af916db94877fe0, type: 3}
+    CallbackWithContext:
+      m_PersistentCalls:
+        m_Calls: []
+    Callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4149331648528180571}
+          m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
+          m_MethodName: toggle
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1768334782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768334780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b023183069df224080314a560e6e1ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockId: 80aa2eb2-af2f-40a9-ad9e-18044ce65bee
+  instanceId: 786865ab-1e32-45fd-89fb-c6ccd6e193ee
+  version: 1
+  installationRoutineCheckpoint:
+    _installationRoutineId: 
+    _installationVariants: []
+--- !u!4 &1768334783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768334780}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &4149331648528180567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -305,6 +419,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3394009923884304705, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394009923884304705, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
+      propertyPath: m_BackGroundColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394009923884304705, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394009923884304705, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3394009923884304705, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3986702361502647326, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
       propertyPath: m_Name
       value: '[BuildingBlock] Camera Rig'
@@ -352,8 +486,41 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 198290571202415597, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4149331648528180571}
   m_SourcePrefab: {fileID: 100100000, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
+--- !u!1 &4149331648528180568 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 198290571202415597, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
+  m_PrefabInstance: {fileID: 4149331648528180567}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &4149331648528180571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4149331648528180568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88138ddb5e4b1f4ab168647b9f17f7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  menuObject: {fileID: 4149331648528180568}
+  atoms:
+  - {fileID: 3358212637470058168, guid: 6e13f5d908072484395753694fa944c1, type: 3}
+  - {fileID: 1679780394247381510, guid: 4fc357fa8a2e37045956c600c801b847, type: 3}
+  - {fileID: 6266393206143506589, guid: 0d0494a120e719b4db696e52238817a6, type: 3}
+  - {fileID: 3278669497621273318, guid: 16fff9a273f687d4aba2d2ba889a6be9, type: 3}
+  - {fileID: 6371064943222052871, guid: be18097f42482404b96deb7e3cd71b6c, type: 3}
+  - {fileID: 2416305365551057582, guid: ef98ba892544f454a99606b110232140, type: 3}
+  - {fileID: 1923299088577131585, guid: fc93e812a4afaf147a2ffdd6cc881f8c, type: 3}
+  - {fileID: 5022852267559231452, guid: ef350c7ac253f4e43986c08ae5b29d0f, type: 3}
+  radius: 0.12
+  height: 0.05
+  spawnDistanceThreshold: 0.5
 --- !u!1001 &5811641084105928256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -535,3 +702,4 @@ SceneRoots:
   - {fileID: 5811641084105928256}
   - {fileID: 6724563631915970543}
   - {fileID: 1509950945}
+  - {fileID: 1768334783}
