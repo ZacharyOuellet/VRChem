@@ -66,7 +66,7 @@ public class MenuManager : MonoBehaviour
 
     private void setBackAtom(GameObject atom)
     {
-        int atomIndex = atoms.FindIndex(arrAtom => arrAtom.name == atom.GetComponent<Atom>().atomData.name);
+        int atomIndex = atoms.FindIndex(arrAtom => arrAtom.GetComponent<Atom>().atomData.name == atom.GetComponent<Atom>().atomData.name);
         Debug.Log(atomIndex);
         float evenSpacingRad = 2 * Mathf.PI / atoms.Count;
         float angle = evenSpacingRad * atomIndex;
@@ -83,12 +83,14 @@ public class MenuManager : MonoBehaviour
         int atomIndex = atoms.FindIndex(a =>
             a.GetComponent<Atom>().atomData.name == atomDataName);
 
-        GameObject newAtom = Instantiate(atoms[atomIndex], worldPos, Quaternion.identity);
+        GameObject newAtom = Instantiate(atoms[atomIndex], manager.transform);
+        newAtom.transform.position = new Vector3(worldPos.x, worldPos.y, worldPos.z);
         manager.AddAtom(newAtom.GetComponent<Atom>());
     }
 
     public void toggle()
     {
+        Debug.LogWarning("Toggle called");
         isMenuOpen = !isMenuOpen;
         menuObject.SetActive(isMenuOpen);
     }

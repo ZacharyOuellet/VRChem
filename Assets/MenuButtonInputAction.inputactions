@@ -12,7 +12,7 @@
                     "id": "c644721a-c7f5-4931-8b20-24d1c526e582",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "Press",
+                    "interactions": "",
                     "initialStateCheck": true
                 }
             ],
@@ -21,6 +21,17 @@
                     "name": "",
                     "id": "8523282e-a30b-4e04-a733-46e4eb8bc4ba",
                     "path": "<XRController>{LeftHand}/{MenuButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee3a819e-c2b5-450c-b047-09a88afda5ef",
+                    "path": "<XRController>{LeftHand}/{PinchTouched}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
