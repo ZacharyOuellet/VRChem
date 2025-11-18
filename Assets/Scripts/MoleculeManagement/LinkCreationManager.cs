@@ -1,7 +1,9 @@
-using UnityEngine;
-using System.Collections;
-using UnityEngine.EventSystems;
+using Oculus.Haptics;
 using Oculus.Interaction;
+using Oculus.Interaction.Feedback;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(MoleculeManager))]
 public class LinkCreationManager : MonoBehaviour
@@ -17,12 +19,24 @@ public class LinkCreationManager : MonoBehaviour
     [Header("Times")]
     [SerializeField] float _linkCreationTime = 1f;
 
+    [Header("Haptics")]
+    [SerializeField] HapticClip _linkCreationHaptic;
+    [SerializeField] HapticClip _linkDestructionHaptic;
+
+    [Header("Audio")]
+    [SerializeField] AudioClip _linkCreationAudio;
+    [SerializeField] AudioClip _linkDestructionAudio;
+
     MoleculeManager _moleculeManager;
     private bool _createIsRunning = false;
+    private HapticClipPlayer _hapticPlayer;
+    private AudioSource _audioPlayer;
 
     void Start()
     {
         _moleculeManager = GetComponent<MoleculeManager>();
+        _hapticPlayer = new HapticClipPlayer();
+        _audioPlayer = GetComponent<AudioSource>();
     }
 
     float GetDistance(Atom a, Atom b)
@@ -38,6 +52,11 @@ public class LinkCreationManager : MonoBehaviour
         {
             _createIsRunning = true;
             StartCoroutine(CreateLink());
+            // TODO maybe add an effect (visual, sound and haptics)
+            _audioPlayer.clip = _linkCreationAudio;
+            _audioPlayer.Play();
+            _hapticPlayer.clip = _linkCreationHaptic;
+            _hapticPlayer.Play(Controller.Both);
         }
     }
 
@@ -51,7 +70,6 @@ public class LinkCreationManager : MonoBehaviour
                 _createIsRunning = false;
                 yield break;
             }
-            // TODO maybe add an effect (visual, sound and haptics)
             yield return new WaitForEndOfFrame();
             dT += Time.deltaTime;
         }
@@ -65,6 +83,10 @@ public class LinkCreationManager : MonoBehaviour
         {
             _moleculeManager.DestroyLink(_grabbedPair[0].id, _grabbedPair[1].id);
             // TODO maybe add an effect (visual, sound and haptics)
+            _audioPlayer.clip = _linkDestructionAudio;
+            _audioPlayer.Play();
+            _hapticPlayer.clip = _linkDestructionHaptic;
+            _hapticPlayer.Play(Controller.Both);
         }
     }
 
