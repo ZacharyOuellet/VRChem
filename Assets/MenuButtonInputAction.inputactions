@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "name": "MenuButtonInputAction",
+    "maps": [
+        {
+            "name": "New action map",
+            "id": "8d6cd6c4-97bf-4037-9f38-3c804d77d07e",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "c644721a-c7f5-4931-8b20-24d1c526e582",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8523282e-a30b-4e04-a733-46e4eb8bc4ba",
+                    "path": "<XRController>{LeftHand}/{MenuButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee3a819e-c2b5-450c-b047-09a88afda5ef",
+                    "path": "<XRController>{LeftHand}/{PinchTouched}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
