@@ -156,6 +156,19 @@ public class MoleculeManager : MonoBehaviour
         MoleculeGraph.Instance.ClearLinks();
     }
 
+    public void DestroyAllMolecules()
+    {
+        List<int> atomsId = new List<int>();
+        foreach (var atom in MoleculeGraph.Instance.Atoms)
+        {
+            atomsId.Add(atom.Key);
+        }
+        foreach(int id in atomsId)
+        {
+            DestroyAtom(MoleculeGraph.Instance.Atoms[id]);
+        }
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

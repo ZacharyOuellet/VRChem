@@ -2,10 +2,19 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(MoleculeManager))]
 public class MoleculeEvaluator : MonoBehaviour
 {
+    [SerializeField] private MoleculeManager moleculeManager;
     [SerializeField] private MoleculeData[] ObjectiveMoleculeDatas;
     private int currentObjectiveMolecule;
+
+    public String ObjectiveMoleculeName { get { return ObjectiveMoleculeDatas[currentObjectiveMolecule].Name; } }
+
+    private void Start()
+    {
+        moleculeManager = GetComponent<MoleculeManager>();
+    }
 
     private void EvaluateMolecule(HashSet<Atom> Molecule)
     {
@@ -28,6 +37,7 @@ public class MoleculeEvaluator : MonoBehaviour
             Debug.Log("Success");
             currentObjectiveMolecule++;
             currentObjectiveMolecule = Math.Min(currentObjectiveMolecule, ObjectiveMoleculeDatas.Length - 1);
+            moleculeManager.DestroyAllMolecules();
         }
 
     }

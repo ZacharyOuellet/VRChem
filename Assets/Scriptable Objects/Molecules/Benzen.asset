@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 436b2f3e8f74f124990d10f150b2e17f, type: 3}
-  m_Name: Water
+  m_Name: Benzen
   m_EditorClassIdentifier: 
-  m_ID: ed2ba92a-3b3b-414d-9441-c08f872bc77c
-  Name: Eau
-  Description: H20
+  m_ID: d1921891-1643-4d4b-bc2f-383706e3c15a
+  Name: Benzene
+  Description: C6H6
   Sprite: {fileID: 0}
   Atoms:
+  - atomData: {fileID: 11400000, guid: e5fed23c26d82b347a0497a805347104, type: 2}
+    count: 6
   - atomData: {fileID: 11400000, guid: 85f9a95459f48534aaf286d5aa221cfc, type: 2}
-    count: 2
-  - atomData: {fileID: 11400000, guid: 4d588f6b6ddc5af4ea78ff412f6fad0c, type: 2}
-    count: 1
+    count: 6

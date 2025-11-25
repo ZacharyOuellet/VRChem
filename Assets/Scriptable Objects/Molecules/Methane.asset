@@ -16,9 +16,8 @@ MonoBehaviour:
   Name: Methane
   Description: CH4
   Sprite: {fileID: 0}
-  Atomes:
-  - {fileID: 11400000, guid: e5fed23c26d82b347a0497a805347104, type: 2}
-  - {fileID: 11400000, guid: 85f9a95459f48534aaf286d5aa221cfc, type: 2}
-  - {fileID: 11400000, guid: 85f9a95459f48534aaf286d5aa221cfc, type: 2}
-  - {fileID: 11400000, guid: 85f9a95459f48534aaf286d5aa221cfc, type: 2}
-  - {fileID: 11400000, guid: 85f9a95459f48534aaf286d5aa221cfc, type: 2}
+  Atoms:
+  - atomData: {fileID: 11400000, guid: e5fed23c26d82b347a0497a805347104, type: 2}
+    count: 1
+  - atomData: {fileID: 11400000, guid: 85f9a95459f48534aaf286d5aa221cfc, type: 2}
+    count: 4
