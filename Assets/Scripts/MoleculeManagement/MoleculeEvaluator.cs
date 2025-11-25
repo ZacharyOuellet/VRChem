@@ -46,7 +46,7 @@ public class MoleculeEvaluator : MonoBehaviour
         {
             Debug.Log("Success");
             currentObjectiveMolecule++;
-            currentObjectiveMolecule = Math.Min(currentObjectiveMolecule, ObjectiveMoleculeDatas.Length - 1);
+            currentObjectiveMolecule = currentObjectiveMolecule % ObjectiveMoleculeDatas.Length;
             
             // OnSuccess
             if (SuccessClip)
