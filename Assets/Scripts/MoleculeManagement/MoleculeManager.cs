@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+
 
 
 [RequireComponent(typeof(LinkFactory))]
@@ -24,6 +26,24 @@ public class MoleculeManager : MonoBehaviour
         _graph.AddAtom(atom);
         atom.SetLookAtTarget(_lookAtTarget);
     }
+
+    public void DestroyAtom(Atom atom)
+    {
+        List<int> atomIdList = new();
+        //double foreach to prevent modifying array while iterating 
+        foreach(var linked in atom.linkedAtoms)
+        {
+            atomIdList.Add(linked.id);
+        }
+        foreach(var linked in atomIdList)
+        {
+            DestroyLink(atom.id, linked);
+        }
+        _graph.RemoveAtom(atom.id);
+        atom.gameObject.SetActive(false);
+        MonoBehaviour.Destroy(atom.gameObject, 0.01f);
+    }
+
 
     private void FixedUpdate()
     {

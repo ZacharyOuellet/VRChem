@@ -46,5 +46,13 @@ public class Atom : MonoBehaviour
         _grabMediator.EmitGrab(gameObject, ptrEvent);
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.gameObject.layer == 8)
+        {
+            transform.parent.GetComponent<MoleculeManager>().DestroyAtom(this);
+        }
+    }
+
     public List<Atom> linkedAtoms = new();
 }
