@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class MoleculeGraph
 {
@@ -7,6 +8,20 @@ public class MoleculeGraph
 
     private List<HashSet<Atom>> _cachedMolecules = null;
     private bool _dirty = true;
+
+    private static MoleculeGraph _Instance;
+
+    public static MoleculeGraph Instance
+    {
+        get
+        {
+            if (_Instance == null)
+            {
+                _Instance = new MoleculeGraph();
+            }
+            return _Instance;
+        }
+    }
 
     public IReadOnlyList<HashSet<Atom>> Molecules
     {
@@ -72,7 +87,7 @@ public class MoleculeGraph
     public int BondsCount(Atom a)
     {
         int count = 0;
-        foreach(Atom b in a.linkedAtoms)
+        foreach (Atom b in a.linkedAtoms)
         {
             MoleculeLink link = _links[new IdPair(a.id, b.id)];
             if (link != null) count += link.Bonds;

@@ -11,7 +11,6 @@ public class MoleculeManager : MonoBehaviour
     [SerializeField] float _minDistance = 0.4f;
     [SerializeField] Transform _lookAtTarget;
 
-    MoleculeGraph _graph = new();
     LinkFactory _linkFactory;
 
     void Awake()
@@ -23,7 +22,7 @@ public class MoleculeManager : MonoBehaviour
 
     public void AddAtom(Atom atom)
     {
-        _graph.AddAtom(atom);
+        MoleculeGraph.Instance.AddAtom(atom);
         atom.SetLookAtTarget(_lookAtTarget);
     }
 
@@ -39,7 +38,7 @@ public class MoleculeManager : MonoBehaviour
         {
             DestroyLink(atom.id, linked);
         }
-        _graph.RemoveAtom(atom.id);
+        MoleculeGraph.Instance.RemoveAtom(atom.id);
         atom.gameObject.SetActive(false);
         MonoBehaviour.Destroy(atom.gameObject, 0.01f);
     }
@@ -47,13 +46,13 @@ public class MoleculeManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        RepulsionSystem.Apply(_graph.Molecules, _minDistance, _repulsionStrength);
+        RepulsionSystem.Apply(MoleculeGraph.Instance.Molecules, _minDistance, _repulsionStrength);
     }
 
     public bool CreateLink(int id1, int id2)
     {
-        if (!_graph.Atoms.TryGetValue(id1, out Atom a) ||
-            !_graph.Atoms.TryGetValue(id2, out Atom b))
+        if (!MoleculeGraph.Instance.Atoms.TryGetValue(id1, out Atom a) ||
+            !MoleculeGraph.Instance.Atoms.TryGetValue(id2, out Atom b))
         {
             Debug.LogError($"Invalid atom ids: {id1}, {id2}");
             return false;
@@ -67,32 +66,32 @@ public class MoleculeManager : MonoBehaviour
 
         var visual = _linkFactory.CreateLinkObject(a.transform, b.transform, joint);
 
-        _graph.AddLink(a, b, visual);
+        MoleculeGraph.Instance.AddLink(a, b, visual);
         return true;
     }
 
     public bool AddBound(int id1, int id2)
     {
 
-        if (!_graph.Atoms.TryGetValue(id1, out Atom a) ||
-            !_graph.Atoms.TryGetValue(id2, out Atom b))
+        if (!MoleculeGraph.Instance.Atoms.TryGetValue(id1, out Atom a) ||
+            !MoleculeGraph.Instance.Atoms.TryGetValue(id2, out Atom b))
         {
             Debug.LogError($"Invalid atom ids: {id1}, {id2}");
             return false;
         }
-        if(!_graph.AreLinked(a, b))
+        if(!MoleculeGraph.Instance.AreLinked(a, b))
         {
             Debug.LogError("Can't add a bound if there is no link");
             return false;
         }
-        if (_graph.BondsCount(a) >= a.atomData.Connections || _graph.BondsCount(b) >= b.atomData.Connections)
+        if (MoleculeGraph.Instance.BondsCount(a) >= a.atomData.Connections || MoleculeGraph.Instance.BondsCount(b) >= b.atomData.Connections)
         {
             Debug.Log("Atom exceeded connection limit");
             return false;
         }
-        if (!_graph.Links.TryGetValue(new IdPair(id1, id2), out MoleculeLink link)) return false;
+        if (!MoleculeGraph.Instance.Links.TryGetValue(new IdPair(id1, id2), out MoleculeLink link)) return false;
         MoleculeLink newLink = _linkFactory.UpdateLink(link, link.Bonds + 1);
-        _graph.ChangeLink(id1, id2, newLink);
+        MoleculeGraph.Instance.ChangeLink(id1, id2, newLink);
 
         return true;
     }
@@ -105,14 +104,14 @@ public class MoleculeManager : MonoBehaviour
             return false;
         }
 
-        if (_graph.BondsCount(a) >= a.atomData.Connections ||
-            _graph.BondsCount(b) >= b.atomData.Connections)
+        if (MoleculeGraph.Instance.BondsCount(a) >= a.atomData.Connections ||
+            MoleculeGraph.Instance.BondsCount(b) >= b.atomData.Connections)
         {
             Debug.Log("Atom exceeded connection limit");
             return false;
         }
 
-        if (_graph.AreLinked(a, b))
+        if (MoleculeGraph.Instance.AreLinked(a, b))
         {
             Debug.Log("Link already exists");
             return false;
@@ -123,16 +122,16 @@ public class MoleculeManager : MonoBehaviour
 
     public bool AreLinked(Atom a, Atom b)
     {
-        return _graph.AreLinked(a, b);
+        return MoleculeGraph.Instance.AreLinked(a, b);
     }
 
     public void DestroyLink(int id1, int id2)
     {
-        if (!_graph.Atoms.TryGetValue(id1, out Atom a) ||
-            !_graph.Atoms.TryGetValue(id2, out Atom b))
+        if (!MoleculeGraph.Instance.Atoms.TryGetValue(id1, out Atom a) ||
+            !MoleculeGraph.Instance.Atoms.TryGetValue(id2, out Atom b))
             return;
 
-        if (_graph.Links.TryGetValue(new IdPair(id1, id2), out MoleculeLink link))
+        if (MoleculeGraph.Instance.Links.TryGetValue(new IdPair(id1, id2), out MoleculeLink link))
         {
             a.GetComponent<SpringJointManager>().RemoveJoint(link.jointRef);
             b.GetComponent<SpringJointManager>().RemoveJoint(link.jointRef);
@@ -140,27 +139,27 @@ public class MoleculeManager : MonoBehaviour
             b.rb.linearVelocity = Vector3.zero;
             _linkFactory.DestroyLinkObject(link);
         }
-        _graph.RemoveLink(a, b);
+        MoleculeGraph.Instance.RemoveLink(a, b);
     }
 
     public void DestroyAllLinks()
     {
-        foreach (var l in _graph.Links.Values)
+        foreach (var l in MoleculeGraph.Instance.Links.Values)
             _linkFactory.DestroyLinkObject(l);
 
-        foreach (var atom in _graph.Atoms.Values)
+        foreach (var atom in MoleculeGraph.Instance.Atoms.Values)
         {
             atom.GetComponent<SpringJointManager>().ClearAllJoints();
             atom.rb.linearVelocity = Vector3.zero;
         }
 
-        _graph.ClearLinks();
+        MoleculeGraph.Instance.ClearLinks();
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        foreach (var atom in _graph.Atoms.Values)
+        foreach (var atom in MoleculeGraph.Instance.Atoms.Values)
             Gizmos.DrawWireSphere(atom.transform.position, _minDistance);
     }
 }
