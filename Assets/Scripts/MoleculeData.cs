@@ -2,6 +2,13 @@ using UnityEngine;
 using System;
 using UnityEngine.Serialization;
 
+[Serializable]
+public struct AtomEntry
+{
+    public AtomData atomData;
+    public int count;
+}
+
 [CreateAssetMenu(fileName = "NewMolecule", menuName = "Molecule")]
 public class MoleculeData : ScriptableObject
 {
@@ -10,7 +17,7 @@ public class MoleculeData : ScriptableObject
     public string Name;
     public string Description;
     public Sprite Sprite;
-    public AtomData[] Atoms;
+    public AtomEntry[] Atoms;
     
     private void OnValidate()
     {
