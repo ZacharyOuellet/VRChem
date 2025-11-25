@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine;
 
 public class MoleculeGraph
 {
@@ -29,6 +28,21 @@ public class MoleculeGraph
             _atoms.Add(atom.id, atom);
             _dirty = true;
         }
+    }
+
+    public void RemoveAtom(int id)
+    {
+        if (!_atoms.ContainsKey(id))
+        {
+            return;
+        }
+        Atom atom = _atoms[id];
+        foreach (var linkedAtom in atom.linkedAtoms)
+        {
+            RemoveLink(atom, linkedAtom);
+        }
+        _atoms.Remove(id);
+        _dirty = true;
     }
 
     public void AddLink(Atom a, Atom b, MoleculeLink link)
