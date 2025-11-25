@@ -13,6 +13,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] float spawnDistanceThreshold = 0.2f;
     [SerializeField] MoleculeManager manager = null;
     [SerializeField] private LayerMask menuLayer;
+    [SerializeField] private LayerMask atomLayer;
     [SerializeField] Transform _lookAtTarget;
 
 
@@ -63,7 +64,6 @@ public class MenuManager : MonoBehaviour
 
             foreach (Transform trans in atomInstance.GetComponentsInChildren<Transform>(true))
             {
-                Debug.Log(trans);
                 int layerNumber = Mathf.RoundToInt(Mathf.Log(menuLayer.value, 2));
                 trans.gameObject.layer = layerNumber;
             }
@@ -94,6 +94,11 @@ public class MenuManager : MonoBehaviour
 
         GameObject newAtom = Instantiate(atoms[atomIndex], manager.transform);
         newAtom.transform.position = new Vector3(worldPos.x, worldPos.y, worldPos.z);
+        foreach (Transform trans in newAtom.GetComponentsInChildren<Transform>(true))
+        {
+            int layerNumber = Mathf.RoundToInt(Mathf.Log(atomLayer.value, 2));
+            trans.gameObject.layer = layerNumber;
+        }
         manager.AddAtom(newAtom.GetComponent<Atom>());
     }
 

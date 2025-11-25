@@ -423,6 +423,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4149331648528180568}
     - target: {fileID: 566156398292408448, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
+      propertyPath: atomLayer.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 566156398292408448, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
       propertyPath: menuLayer.m_Bits
       value: 64
       objectReference: {fileID: 0}
