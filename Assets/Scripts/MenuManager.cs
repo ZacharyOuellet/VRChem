@@ -12,6 +12,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] float height = 0.05f;
     [SerializeField] float spawnDistanceThreshold = 0.2f;
     [SerializeField] MoleculeManager manager = null;
+    [SerializeField] private LayerMask menuLayer;
+    [SerializeField] Transform _lookAtTarget;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -38,6 +40,7 @@ public class MenuManager : MonoBehaviour
 
         float distanceFromMenu = Vector3.Distance(releasedPos, menuObject.transform.position);
 
+
         if (distanceFromMenu > spawnDistanceThreshold)
         {
             spawnAtom(atom, releasedPos);
@@ -56,7 +59,14 @@ public class MenuManager : MonoBehaviour
             float zPos = radius * Mathf.Sin(angle);
 
             atomInstance.transform.localPosition = new Vector3(xPos, height, zPos);
+            atomInstance.GetComponent<Atom>().SetLookAtTarget(_lookAtTarget);
 
+            foreach (Transform trans in atomInstance.GetComponentsInChildren<Transform>(true))
+            {
+                Debug.Log(trans);
+                int layerNumber = Mathf.RoundToInt(Mathf.Log(menuLayer.value, 2));
+                trans.gameObject.layer = layerNumber;
+            }
             angle += evenSpacingRad;
 
             atoms[i] = atomInstance;

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1831769690843105551}
   - component: {fileID: 8785936116415443867}
   - component: {fileID: 2080769038523614468}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 1363568607871876771}
   - component: {fileID: 3838072545901524295}
   - component: {fileID: 3516356937414662685}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ISDK_HandGrabInteraction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 5589219846885205619}
   - component: {fileID: 1335520611670487520}
   - component: {fileID: 460693287287487968}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Atome de base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 1293672173786503087}
   - component: {fileID: 2141968431930992272}
   - component: {fileID: 18771602159384676}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -438,7 +438,7 @@ GameObject:
   - component: {fileID: 492791506565461989}
   - component: {fileID: 4163402165834441475}
   - component: {fileID: 4339474510299838382}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

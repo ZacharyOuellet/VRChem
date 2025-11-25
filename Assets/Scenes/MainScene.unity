@@ -410,10 +410,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 198290571202415597, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 566156398292408448, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
       propertyPath: manager
       value: 
       objectReference: {fileID: 759160841}
+    - target: {fileID: 566156398292408448, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
+      propertyPath: _lookAtTarget
+      value: 
+      objectReference: {fileID: 4149331648528180568}
+    - target: {fileID: 566156398292408448, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
+      propertyPath: menuLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 3986702361502647326, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
       propertyPath: m_Name
       value: '[BuildingBlock] Camera Rig'
