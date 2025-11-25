@@ -111,6 +111,7 @@ MonoBehaviour:
   _linkCreationTime: 0
   _linkCreationHaptic: {fileID: 2460798210113038985, guid: e809ca904d021c74a93c5064ddb9a9a9, type: 3}
   _linkDestructionHaptic: {fileID: 2460798210113038985, guid: e809ca904d021c74a93c5064ddb9a9a9, type: 3}
+  _linkResistanceHaptic: {fileID: 2460798210113038985, guid: 259f837e2bfc52643af1102fd2b55972, type: 3}
   _linkCreationAudio: {fileID: 8300000, guid: f95071cb2a3e01b4dba3813258b087a1, type: 3}
   _linkDestructionAudio: {fileID: 8300000, guid: f78f19af6e3e37342b5bc8e141e49015, type: 3}
 --- !u!114 &3667317703408265062

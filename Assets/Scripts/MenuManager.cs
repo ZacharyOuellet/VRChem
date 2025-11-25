@@ -42,7 +42,11 @@ public class MenuManager : MonoBehaviour
         setBackAtom(atom);
 
         Vector3 menuPosition = menuObject.transform.position;
-        if (_usingHand) menuPosition.x += handMenuShift;
+        if (_usingHand) 
+        {
+            menuPosition.x += handMenuShift;
+            menuPosition.z += 0.1f;
+        };
         float distanceFromMenu = Vector3.Distance(releasedPos, menuPosition);
 
 
@@ -77,8 +81,12 @@ public class MenuManager : MonoBehaviour
         {
             GameObject atomInstance = atoms[i];
             float xPos = radius * Mathf.Cos(angle);
-            if (_usingHand) xPos += handMenuShift;
             float zPos = radius * Mathf.Sin(angle);
+            if (_usingHand)
+            {
+                xPos += handMenuShift;
+                zPos += 0.1f;
+            };
 
             atomInstance.transform.localPosition = new Vector3(xPos, height, zPos);
             atomInstance.GetComponent<Atom>().SetLookAtTarget(_lookAtTarget);
@@ -92,8 +100,12 @@ public class MenuManager : MonoBehaviour
         float evenSpacingRad = 2 * Mathf.PI / atoms.Count;
         float angle = evenSpacingRad * atomIndex;
         float xPos = radius * Mathf.Cos(angle);
-        if (_usingHand) xPos += handMenuShift;
         float zPos = radius * Mathf.Sin(angle);
+        if (_usingHand)
+        {
+            xPos += handMenuShift;
+            zPos += 0.1f;
+        };
         atom.transform.localPosition = new Vector3(xPos, height, zPos);
     }
 
