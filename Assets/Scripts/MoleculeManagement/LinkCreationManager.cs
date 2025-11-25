@@ -23,6 +23,7 @@ public class LinkCreationManager : MonoBehaviour
     [Header("Haptics")]
     [SerializeField] HapticClip _linkCreationHaptic;
     [SerializeField] HapticClip _linkDestructionHaptic;
+    [SerializeField] HapticClip _linkResistanceHaptic;
 
     [Header("Audio")]
     [SerializeField] AudioClip _linkCreationAudio;
@@ -77,6 +78,8 @@ public class LinkCreationManager : MonoBehaviour
         if(!_moleculeManager.CreateLink(_grabbedPair[0].id, _grabbedPair[1].id))
         {
             // TODO maybe add an effect (visual, sound and haptics) for when link cant be created
+            _hapticPlayer.clip = _linkResistanceHaptic;
+            _hapticPlayer.Play(Controller.Both);
             _createIsRunning = false;
             yield break;
         }
@@ -121,6 +124,8 @@ public class LinkCreationManager : MonoBehaviour
         if (!_moleculeManager.AddBound(_grabbedPair[0].id, _grabbedPair[1].id))
         {
             // TODO maybe add an effect (visual, sound and haptics) for when bound cant be added
+            _hapticPlayer.clip = _linkResistanceHaptic;
+            _hapticPlayer.Play(Controller.Both);
             _addIsRunning = false;
             yield break;
         }
