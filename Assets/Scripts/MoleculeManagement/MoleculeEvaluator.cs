@@ -1,13 +1,19 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MoleculeManager))]
 public class MoleculeEvaluator : MonoBehaviour
 {
-    [SerializeField] private MoleculeManager moleculeManager;
     [SerializeField] private MoleculeData[] ObjectiveMoleculeDatas;
+    private MoleculeManager moleculeManager;
     private int currentObjectiveMolecule;
+
+    public float DelayAfterSuccess = 5.0f;
+    
+    public AudioClip SuccessClip;
+    private AudioSource audioPlayer;
 
     public String ObjectiveMoleculeName { get { return ObjectiveMoleculeDatas[currentObjectiveMolecule].Name; } }
     public String ObjectiveMoleculeDescription { get { return ObjectiveMoleculeDatas[currentObjectiveMolecule].Description; } }
@@ -15,6 +21,7 @@ public class MoleculeEvaluator : MonoBehaviour
     private void Start()
     {
         moleculeManager = GetComponent<MoleculeManager>();
+        audioPlayer = GetComponent<AudioSource>();
     }
 
     private void EvaluateMolecule(HashSet<Atom> Molecule)
@@ -38,9 +45,14 @@ public class MoleculeEvaluator : MonoBehaviour
             Debug.Log("Success");
             currentObjectiveMolecule++;
             currentObjectiveMolecule = Math.Min(currentObjectiveMolecule, ObjectiveMoleculeDatas.Length - 1);
-            moleculeManager.DestroyAllMolecules();
+            
+            // OnSuccess
+            if (SuccessClip)
+            {
+                audioPlayer.PlayOneShot(SuccessClip);
+            }
+            StartCoroutine(SuccessSequence());
         }
-
     }
 
     private void Update()
@@ -49,6 +61,12 @@ public class MoleculeEvaluator : MonoBehaviour
         {
             EvaluateMolecule(molecule);
         }
+    }
+
+    IEnumerator SuccessSequence()
+    {
+        yield return new WaitForSeconds(DelayAfterSuccess);
+        moleculeManager.DestroyAllMolecules();
     }
 
     private bool TestMolecule(Dictionary<String, int> atomsTested, MoleculeData ObjectiveMolecule)
