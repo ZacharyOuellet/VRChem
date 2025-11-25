@@ -7,6 +7,7 @@ public class MoleculeManager : MonoBehaviour
     [Header("Repulsion")]
     [SerializeField] float _repulsionStrength = 0.5f;
     [SerializeField] float _minDistance = 0.4f;
+    [SerializeField] Transform _lookAtTarget;
 
     MoleculeGraph _graph = new();
     LinkFactory _linkFactory;
@@ -21,6 +22,7 @@ public class MoleculeManager : MonoBehaviour
     public void AddAtom(Atom atom)
     {
         _graph.AddAtom(atom);
+        atom.SetLookAtTarget(_lookAtTarget);
     }
 
     private void FixedUpdate()

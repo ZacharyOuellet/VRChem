@@ -259,6 +259,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 517299814108431424, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: _lookAtTarget
+      value: 
+      objectReference: {fileID: 4149331648528180568}
     - target: {fileID: 1021477313015115239, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
       propertyPath: m_Name
       value: MoleculeManager
@@ -459,6 +463,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
+--- !u!4 &4149331648528180568 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8445807789620325330, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
+  m_PrefabInstance: {fileID: 4149331648528180567}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4149331648528180571 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 566156398292408448, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}

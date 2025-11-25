@@ -12,6 +12,7 @@ public class Atom : MonoBehaviour
     Grabbable _grabbable;
     GrabMediator _grabMediator;
 
+    private Transform _lookAtTarget;
 
     private static int nextId = 0;
     void Awake()
@@ -19,6 +20,10 @@ public class Atom : MonoBehaviour
         id = ++nextId;
     }
 
+    public void SetLookAtTarget(Transform target)
+    {
+        _lookAtTarget = target;
+    }
 
     private void Start()
     {
@@ -26,6 +31,14 @@ public class Atom : MonoBehaviour
         _grabbable = GetComponent<Grabbable>();
         _grabMediator = GrabMediator.Instance;
         if (_grabbable != null) _grabbable.WhenPointerEventRaised += Grabbable_WhenPointerEventRaised;
+    }
+
+    private void Update()
+    {
+        if(_lookAtTarget != null)
+        {
+            transform.LookAt(_lookAtTarget);
+        }
     }
 
     private void Grabbable_WhenPointerEventRaised(PointerEvent ptrEvent)
