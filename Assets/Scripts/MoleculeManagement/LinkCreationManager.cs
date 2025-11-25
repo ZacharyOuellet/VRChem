@@ -45,7 +45,6 @@ public class LinkCreationManager : MonoBehaviour
     {
         if (a == null || b == null)
         {
-            Debug.LogError("a or b in null");
             return Mathf.Infinity;
         }
         Vector3 delta = b.transform.position - a.transform.position;
@@ -64,7 +63,6 @@ public class LinkCreationManager : MonoBehaviour
 
     IEnumerator CreateLink()
     {
-        Debug.LogWarning("CREATELINK COROUTINE STARTED");
         float dT = 0;
         while (dT < _linkCreationTime)
         {
@@ -86,7 +84,6 @@ public class LinkCreationManager : MonoBehaviour
         _audioPlayer.Play();
         _hapticPlayer.clip = _linkCreationHaptic;
         _hapticPlayer.Play(Controller.Both);
-        Debug.LogWarning("CREATELINK WAITING FOR DISTANCE >");
 
         // prevent adding a link before wanting to
         while (GetDistance(_grabbedPair[0], _grabbedPair[1]) < _linkCreationThreshold)
@@ -95,14 +92,12 @@ public class LinkCreationManager : MonoBehaviour
         }
 
         _createIsRunning = false;
-        Debug.LogWarning("CREATELINK COROUTINE ENDED GRACEFULLY");
 
     }
 
     void TryAddLink()
     {
         if (_createIsRunning || _addIsRunning) return;
-        Debug.Log("TRY ADD LINK");
         if (GetDistance(_grabbedPair[0], _grabbedPair[1]) < _linkAdditionThreshold)
         {
             _addIsRunning = true;
@@ -112,8 +107,6 @@ public class LinkCreationManager : MonoBehaviour
 
     IEnumerator AddLink()
     {
-        Debug.LogWarning("ADDLINK COROUTINE STARTED");
-
         float dT = 0;
         while (dT < _linkCreationTime)
         {
@@ -135,15 +128,12 @@ public class LinkCreationManager : MonoBehaviour
         _audioPlayer.Play();
         _hapticPlayer.clip = _linkCreationHaptic;
         _hapticPlayer.Play(Controller.Both);
-        Debug.LogWarning("ADDLINK WAITING FOR DISTANCE >");
-
         // prevent adding a link before wanting to
         while (GetDistance(_grabbedPair[0], _grabbedPair[1]) < _linkCreationThreshold)
         {
             yield return new WaitForEndOfFrame();
         }
         _addIsRunning = false;
-        Debug.LogWarning("ADDLINK COROUTINE ENDED GRACEFULLY");
     }
 
     void TryDestroyLink()

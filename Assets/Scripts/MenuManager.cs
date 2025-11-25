@@ -37,7 +37,6 @@ public class MenuManager : MonoBehaviour
         setBackAtom(atom);
 
         float distanceFromMenu = Vector3.Distance(releasedPos, menuObject.transform.position);
-        Debug.Log("distance from menu " + distanceFromMenu);
 
         if (distanceFromMenu > spawnDistanceThreshold)
         {
@@ -90,7 +89,6 @@ public class MenuManager : MonoBehaviour
 
     public void toggle()
     {
-        Debug.LogWarning("Toggle called");
         isMenuOpen = !isMenuOpen;
         menuObject.SetActive(isMenuOpen);
     }

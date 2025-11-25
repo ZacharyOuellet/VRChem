@@ -51,7 +51,6 @@ public class MoleculeManager : MonoBehaviour
 
     public bool AddBound(int id1, int id2)
     {
-        Debug.Log("MoleculeManager AddBound called ");
 
         if (!_graph.Atoms.TryGetValue(id1, out Atom a) ||
             !_graph.Atoms.TryGetValue(id2, out Atom b))
@@ -66,13 +65,12 @@ public class MoleculeManager : MonoBehaviour
         }
         if (_graph.BondsCount(a) >= a.atomData.Connections || _graph.BondsCount(b) >= b.atomData.Connections)
         {
-            Debug.LogWarning("Atom exceeded connection limit");
+            Debug.Log("Atom exceeded connection limit");
             return false;
         }
         if (!_graph.Links.TryGetValue(new IdPair(id1, id2), out MoleculeLink link)) return false;
         MoleculeLink newLink = _linkFactory.UpdateLink(link, link.Bonds + 1);
         _graph.ChangeLink(id1, id2, newLink);
-        Debug.Log("MoleculeManager AddBound finished");
 
         return true;
     }
@@ -81,20 +79,20 @@ public class MoleculeManager : MonoBehaviour
     {
         if (a == b)
         {
-            Debug.LogWarning("Atom can't link to itself");
+            Debug.Log("Atom can't link to itself");
             return false;
         }
 
         if (_graph.BondsCount(a) >= a.atomData.Connections ||
             _graph.BondsCount(b) >= b.atomData.Connections)
         {
-            Debug.LogWarning("Atom exceeded connection limit");
+            Debug.Log("Atom exceeded connection limit");
             return false;
         }
 
         if (_graph.AreLinked(a, b))
         {
-            Debug.LogWarning("Link already exists");
+            Debug.Log("Link already exists");
             return false;
         }
 

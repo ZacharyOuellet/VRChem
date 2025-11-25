@@ -14,7 +14,6 @@ public class LinkFactory : MonoBehaviour
 
     public MoleculeLink UpdateLink(MoleculeLink link, int bonds)
     {
-        Debug.Log("LinkFactory UpdateLink called with " + bonds + " bonds");
         if(link == null) return null;
         if(link.Bonds == bonds) return link;
         if(bonds > linkPrefabs.Length)
@@ -31,7 +30,6 @@ public class LinkFactory : MonoBehaviour
         var newLink = obj.GetComponent<MoleculeLink>();
         newLink.Init(link);
         Destroy(link.gameObject);
-        Debug.Log("LinkFactory UpdateLink finished");
         return newLink;
     }
 
