@@ -40,6 +40,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "OpenTrashMap",
+            "id": "94104910-f2c7-4e7d-8d86-ffec6570da13",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "2f57d0b0-ba06-4376-87c9-cf5ea9624d68",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "99b9c820-01fe-4655-b6cb-ef4c8fc4c5d6",
+                    "path": "<XRController>{LeftHand}/{SecondaryButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

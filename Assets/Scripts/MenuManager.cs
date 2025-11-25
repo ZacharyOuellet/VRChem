@@ -17,6 +17,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private LayerMask menuLayer;
     [SerializeField] private LayerMask atomLayer;
     [SerializeField] Transform _lookAtTarget;
+
+    [SerializeField] Trash _trash;
     private bool _usingHand = false;
 
 
@@ -127,16 +129,48 @@ public class MenuManager : MonoBehaviour
 
     public void toggle()
     {
-        isMenuOpen = !isMenuOpen;
-        menuObject.SetActive(isMenuOpen);
         _usingHand = false;
+        isMenuOpen = !isMenuOpen;
+        if(isMenuOpen && _trash.Status)
+        {
+            _trash.Toggle(_usingHand);
+        }
+        menuObject.SetActive(isMenuOpen);
         SetAtomPos();
     }
     public void toggleHand()
     {
-        isMenuOpen = !isMenuOpen;
-        menuObject.SetActive(isMenuOpen);
         _usingHand = true;
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen && _trash.Status)
+        {
+            _trash.Toggle(_usingHand);
+        }
+        menuObject.SetActive(isMenuOpen);
         SetAtomPos();
+    }
+
+    public void toggleTrash()
+    {
+        _usingHand = false;
+        _trash.Toggle(_usingHand);
+        if (isMenuOpen && _trash.Status)
+        {
+            isMenuOpen = false;
+            menuObject.SetActive(isMenuOpen);
+            SetAtomPos();
+        }
+    }
+
+    public void toggleTrashHand()
+    {
+        _usingHand = true;
+        _trash.Toggle(_usingHand);
+        if (isMenuOpen && _trash.Status)
+        {
+            isMenuOpen = !isMenuOpen;
+            menuObject.SetActive(isMenuOpen);
+            SetAtomPos();
+        }
     }
 }
