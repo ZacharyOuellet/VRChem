@@ -36,9 +36,13 @@ public class MoleculeManagerDebugger : MonoBehaviour
             _manager.AddAtom(newAtom.GetComponent<Atom>());
         }
 
-        foreach (IdPair link in _startingMolecule.links)
+        foreach (DebugLink link in _startingMolecule.bounds)
         {
-            _manager.CreateLink(idsTranslation[link.A], idsTranslation[link.B]);
+            _manager.CreateLink(idsTranslation[link.pair.A], idsTranslation[link.pair.B]);
+            for(int j = 1; j < link.nBounds; j++)
+            {
+                _manager.AddBound(idsTranslation[link.pair.A], idsTranslation[link.pair.B]);
+            }
         }
     }
 

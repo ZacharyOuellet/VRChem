@@ -41,3 +41,28 @@ MonoBehaviour:
     B: 13
   - A: 12
     B: 14
+  bounds:
+  - nBounds: 1
+    pair:
+      A: 8
+      B: 9
+  - nBounds: 1
+    pair:
+      A: 10
+      B: 9
+  - nBounds: 1
+    pair:
+      A: 10
+      B: 8
+  - nBounds: 1
+    pair:
+      A: 10
+      B: 11
+  - nBounds: 1
+    pair:
+      A: 12
+      B: 13
+  - nBounds: 1
+    pair:
+      A: 12
+      B: 14

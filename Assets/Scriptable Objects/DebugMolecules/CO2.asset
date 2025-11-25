@@ -21,3 +21,12 @@ MonoBehaviour:
     B: 1
   - A: 0
     B: 2
+  bounds:
+  - nBounds: 2
+    pair:
+      A: 0
+      B: 1
+  - nBounds: 2
+    pair:
+      A: 0
+      B: 2

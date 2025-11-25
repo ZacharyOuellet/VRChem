@@ -13,6 +13,7 @@ public class MoleculeManager : MonoBehaviour
 
     void Awake()
     {
+        Application.targetFrameRate = 120;
         if (_linkFactory == null)
             _linkFactory = GetComponent<LinkFactory>();
     }
@@ -48,6 +49,34 @@ public class MoleculeManager : MonoBehaviour
         return true;
     }
 
+    public bool AddBound(int id1, int id2)
+    {
+        Debug.Log("MoleculeManager AddBound called ");
+
+        if (!_graph.Atoms.TryGetValue(id1, out Atom a) ||
+            !_graph.Atoms.TryGetValue(id2, out Atom b))
+        {
+            Debug.LogError($"Invalid atom ids: {id1}, {id2}");
+            return false;
+        }
+        if(!_graph.AreLinked(a, b))
+        {
+            Debug.LogError("Can't add a bound if there is no link");
+            return false;
+        }
+        if (_graph.BondsCount(a) >= a.atomData.Connections || _graph.BondsCount(b) >= b.atomData.Connections)
+        {
+            Debug.LogWarning("Atom exceeded connection limit");
+            return false;
+        }
+        if (!_graph.Links.TryGetValue(new IdPair(id1, id2), out MoleculeLink link)) return false;
+        MoleculeLink newLink = _linkFactory.UpdateLink(link, link.Bonds + 1);
+        _graph.ChangeLink(id1, id2, newLink);
+        Debug.Log("MoleculeManager AddBound finished");
+
+        return true;
+    }
+
     private bool CheckLinkValidity(Atom a, Atom b)
     {
         if (a == b)
@@ -56,8 +85,8 @@ public class MoleculeManager : MonoBehaviour
             return false;
         }
 
-        if (a.linkedAtoms.Count >= a.atomData.Connections ||
-            b.linkedAtoms.Count >= b.atomData.Connections)
+        if (_graph.BondsCount(a) >= a.atomData.Connections ||
+            _graph.BondsCount(b) >= b.atomData.Connections)
         {
             Debug.LogWarning("Atom exceeded connection limit");
             return false;

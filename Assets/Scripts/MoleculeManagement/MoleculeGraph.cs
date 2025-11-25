@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 public class MoleculeGraph
 {
@@ -52,6 +53,23 @@ public class MoleculeGraph
     public bool AreLinked(Atom a, Atom b)
     {
         return _links.ContainsKey(new IdPair(a.id, b.id));
+    }
+
+    public int BondsCount(Atom a)
+    {
+        int count = 0;
+        foreach(Atom b in a.linkedAtoms)
+        {
+            MoleculeLink link = _links[new IdPair(a.id, b.id)];
+            if (link != null) count += link.Bonds;
+        }
+        return count;
+    }
+
+    public void ChangeLink(int idA, int idB, MoleculeLink newLink)
+    {
+        _links[new IdPair(idA, idB)] = newLink;
+        _dirty = true;
     }
 
     public void ClearLinks()

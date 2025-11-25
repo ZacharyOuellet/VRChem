@@ -257,7 +257,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   atomData: {fileID: 0}
   rb: {fileID: 0}
-  Grabbable: {fileID: 5589219846885205619}
   linkedAtoms: []
 --- !u!114 &5589219846885205619
 MonoBehaviour:
@@ -293,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8324301d52b48614b9f5b23470ea8bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spring: 50
+  spring: 100
   damper: 10
   minDistance: 0.1
   maxDistance: 0.1
@@ -308,7 +307,7 @@ Rigidbody:
   m_GameObject: {fileID: 3617730721322200431}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 2
+  m_Drag: 1
   m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -319,7 +318,7 @@ Rigidbody:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
+  m_ImplicitCom: 0
   m_ImplicitTensor: 1
   m_UseGravity: 0
   m_IsKinematic: 0

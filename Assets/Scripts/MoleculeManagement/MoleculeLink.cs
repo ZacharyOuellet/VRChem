@@ -2,7 +2,13 @@ using UnityEngine;
 
 public class MoleculeLink : MonoBehaviour
 {
+    public int Bonds
+    {
+        get { return _bonds; }
+        private set { _bonds = value; }
+    }
 
+    [SerializeField] private int _bonds;
     [SerializeField] Transform _atom1;
     [SerializeField] Transform _atom2;
     [SerializeField] float _diameter;
@@ -13,6 +19,11 @@ public class MoleculeLink : MonoBehaviour
     public void Init(Transform atomA, Transform atomB, SpringJoint joint)
     {
         (_atom1, _atom2, jointRef) = (atomA, atomB, joint);
+    }
+
+    public void Init(MoleculeLink link)
+    {
+        (_atom1, _atom2, jointRef) = (link._atom1, link._atom2, link.jointRef);
     }
 
     void Update()
@@ -32,6 +43,10 @@ public class MoleculeLink : MonoBehaviour
 
         float distance = dir.magnitude;
         float diameter = Mathf.Min(_diameter * _stretchFactor / distance, _maxDiameter);
-        transform.localScale = new Vector3(diameter, distance / 2f, diameter);
+        for (int i =0; i< transform.childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            child.localScale = new Vector3(diameter, distance/2f , diameter);
+        };
     }
 }

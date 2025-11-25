@@ -14,6 +14,7 @@ public class LinkCreationManager : MonoBehaviour
 
     [Header("Distances")]
     [SerializeField] float _linkCreationThreshold = 0.2f;
+    [SerializeField] float _linkAdditionThreshold = 0.07f;
     [SerializeField] float _linkDestructionThreshold = 1.0f;
 
     [Header("Times")]
@@ -29,6 +30,7 @@ public class LinkCreationManager : MonoBehaviour
 
     MoleculeManager _moleculeManager;
     private bool _createIsRunning = false;
+    private bool _addIsRunning = false;
     private HapticClipPlayer _hapticPlayer;
     private AudioSource _audioPlayer;
 
@@ -41,27 +43,28 @@ public class LinkCreationManager : MonoBehaviour
 
     float GetDistance(Atom a, Atom b)
     {
+        if (a == null || b == null)
+        {
+            Debug.LogError("a or b in null");
+            return Mathf.Infinity;
+        }
         Vector3 delta = b.transform.position - a.transform.position;
         return delta.magnitude;
     }
 
     void TryCreateLink()
     {
-        if (_createIsRunning) return;
+        if (_createIsRunning || _addIsRunning) return;
         if (GetDistance(_grabbedPair[0], _grabbedPair[1]) < _linkCreationThreshold)
         {
             _createIsRunning = true;
             StartCoroutine(CreateLink());
-            // TODO maybe add an effect (visual, sound and haptics)
-            _audioPlayer.clip = _linkCreationAudio;
-            _audioPlayer.Play();
-            _hapticPlayer.clip = _linkCreationHaptic;
-            _hapticPlayer.Play(Controller.Both);
         }
     }
 
     IEnumerator CreateLink()
     {
+        Debug.LogWarning("CREATELINK COROUTINE STARTED");
         float dT = 0;
         while (dT < _linkCreationTime)
         {
@@ -73,8 +76,74 @@ public class LinkCreationManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
             dT += Time.deltaTime;
         }
-        _moleculeManager.CreateLink(_grabbedPair[0].id, _grabbedPair[1].id);
+        if(!_moleculeManager.CreateLink(_grabbedPair[0].id, _grabbedPair[1].id))
+        {
+            // TODO maybe add an effect (visual, sound and haptics) for when link cant be created
+            _createIsRunning = false;
+            yield break;
+        }
+        _audioPlayer.clip = _linkCreationAudio;
+        _audioPlayer.Play();
+        _hapticPlayer.clip = _linkCreationHaptic;
+        _hapticPlayer.Play(Controller.Both);
+        Debug.LogWarning("CREATELINK WAITING FOR DISTANCE >");
+
+        // prevent adding a link before wanting to
+        while (GetDistance(_grabbedPair[0], _grabbedPair[1]) < _linkCreationThreshold)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
         _createIsRunning = false;
+        Debug.LogWarning("CREATELINK COROUTINE ENDED GRACEFULLY");
+
+    }
+
+    void TryAddLink()
+    {
+        if (_createIsRunning || _addIsRunning) return;
+        Debug.Log("TRY ADD LINK");
+        if (GetDistance(_grabbedPair[0], _grabbedPair[1]) < _linkAdditionThreshold)
+        {
+            _addIsRunning = true;
+            StartCoroutine(AddLink());
+        }
+    }
+
+    IEnumerator AddLink()
+    {
+        Debug.LogWarning("ADDLINK COROUTINE STARTED");
+
+        float dT = 0;
+        while (dT < _linkCreationTime)
+        {
+            if (GetDistance(_grabbedPair[0], _grabbedPair[1]) > _linkAdditionThreshold)
+            {
+                _addIsRunning = false;
+                yield break;
+            }
+            yield return new WaitForEndOfFrame();
+            dT += Time.deltaTime;
+        }
+        if (!_moleculeManager.AddBound(_grabbedPair[0].id, _grabbedPair[1].id))
+        {
+            // TODO maybe add an effect (visual, sound and haptics) for when bound cant be added
+            _addIsRunning = false;
+            yield break;
+        }
+        _audioPlayer.clip = _linkCreationAudio;
+        _audioPlayer.Play();
+        _hapticPlayer.clip = _linkCreationHaptic;
+        _hapticPlayer.Play(Controller.Both);
+        Debug.LogWarning("ADDLINK WAITING FOR DISTANCE >");
+
+        // prevent adding a link before wanting to
+        while (GetDistance(_grabbedPair[0], _grabbedPair[1]) < _linkCreationThreshold)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        _addIsRunning = false;
+        Debug.LogWarning("ADDLINK COROUTINE ENDED GRACEFULLY");
     }
 
     void TryDestroyLink()
@@ -96,6 +165,7 @@ public class LinkCreationManager : MonoBehaviour
         {
             if (_moleculeManager.AreLinked(_grabbedPair[0], _grabbedPair[1]))
             {
+                TryAddLink();
                 TryDestroyLink();
             }
             else

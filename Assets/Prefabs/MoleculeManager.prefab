@@ -49,7 +49,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406209879b464f342bbccd6f20d4bbf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _repulsionStrength: 0.3
+  _repulsionStrength: 0.05
   _minDistance: 0.2
 --- !u!114 &1881633663669413963
 MonoBehaviour:
@@ -63,7 +63,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec9b8674f32624489537e866a78897c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linkPrefab: {fileID: 8810686560614313539, guid: 5340e7e4351b44d4cabc431b443e0b2a, type: 3}
+  linkPrefabs:
+  - {fileID: 8810686560614313539, guid: 5340e7e4351b44d4cabc431b443e0b2a, type: 3}
+  - {fileID: 6184664136648006111, guid: 93d6ab5617b6e034a878c6eb361ed5c5, type: 3}
+  - {fileID: 6184664136648006111, guid: acd24c022dcb7c34eb84bf57fc95555a, type: 3}
+  - {fileID: 6184664136648006111, guid: 28df089c2b248324d8e4c546e22de0f7, type: 3}
 --- !u!114 &5985315239485364902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,6 +104,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _linkCreationThreshold: 0.15
+  _linkAdditionThreshold: 0.1
   _linkDestructionThreshold: 0.45
   _linkCreationTime: 0
   _linkCreationHaptic: {fileID: 2460798210113038985, guid: e809ca904d021c74a93c5064ddb9a9a9, type: 3}

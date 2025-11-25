@@ -1,6 +1,5 @@
 using System;
-// This is used in the MoleculeManager to create a map of all links 
-using UnityEngine;
+// This is used in the MoleculeManager to create a hashmap of all links 
 
 [Serializable]
 public struct IdPair : IEquatable<IdPair>
