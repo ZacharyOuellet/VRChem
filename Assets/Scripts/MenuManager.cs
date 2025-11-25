@@ -1,6 +1,7 @@
 using Oculus.Interaction;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class MenuManager : MonoBehaviour
 {
@@ -11,24 +12,26 @@ public class MenuManager : MonoBehaviour
     [SerializeField] float radius = 0.12f;
     [SerializeField] float height = 0.05f;
     [SerializeField] float spawnDistanceThreshold = 0.2f;
+    [SerializeField] float handMenuShift = 0.2f;
     [SerializeField] MoleculeManager manager = null;
     [SerializeField] private LayerMask menuLayer;
     [SerializeField] private LayerMask atomLayer;
     [SerializeField] Transform _lookAtTarget;
+    private bool _usingHand = false;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         menuObject.SetActive(isMenuOpen);
+        initAtom();
         SetAtomPos();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {}
 
-    }
     public void handleReleaseAtom(GameObject atom, PointerEvent interractorId)
     {
         if (atom.transform.parent == null) return;
@@ -36,16 +39,33 @@ public class MenuManager : MonoBehaviour
         if (interractorId.Type != PointerEventType.Unselect) return;
 
         Vector3 releasedPos = atom.transform.position;
-
         setBackAtom(atom);
 
-        float distanceFromMenu = Vector3.Distance(releasedPos, menuObject.transform.position);
+        Vector3 menuPosition = menuObject.transform.position;
+        if (_usingHand) menuPosition.x += handMenuShift;
+        float distanceFromMenu = Vector3.Distance(releasedPos, menuPosition);
 
 
         if (distanceFromMenu > spawnDistanceThreshold)
         {
             spawnAtom(atom, releasedPos);
         }
+    }
+
+    private void initAtom()
+    {
+        for (int i = 0; i < atoms.Count; i++)
+        {
+            GameObject atomInstance = Instantiate(atoms[i], transform);
+
+            foreach (Transform trans in atomInstance.GetComponentsInChildren<Transform>(true))
+            {
+                int layerNumber = Mathf.RoundToInt(Mathf.Log(menuLayer.value, 2));
+                trans.gameObject.layer = layerNumber;
+            }
+            atoms[i] = atomInstance;
+        }
+
     }
 
     private void SetAtomPos()
@@ -55,31 +75,24 @@ public class MenuManager : MonoBehaviour
 
         for (int i = 0; i < atoms.Count; i++)
         {
-            GameObject atomInstance = Instantiate(atoms[i], transform);
+            GameObject atomInstance = atoms[i];
             float xPos = radius * Mathf.Cos(angle);
+            if (_usingHand) xPos += handMenuShift;
             float zPos = radius * Mathf.Sin(angle);
 
             atomInstance.transform.localPosition = new Vector3(xPos, height, zPos);
             atomInstance.GetComponent<Atom>().SetLookAtTarget(_lookAtTarget);
-
-            foreach (Transform trans in atomInstance.GetComponentsInChildren<Transform>(true))
-            {
-                int layerNumber = Mathf.RoundToInt(Mathf.Log(menuLayer.value, 2));
-                trans.gameObject.layer = layerNumber;
-            }
             angle += evenSpacingRad;
-
-            atoms[i] = atomInstance;
         }
     }
 
     private void setBackAtom(GameObject atom)
     {
         int atomIndex = atoms.FindIndex(arrAtom => arrAtom.GetComponent<Atom>().atomData.name == atom.GetComponent<Atom>().atomData.name);
-        Debug.Log(atomIndex);
         float evenSpacingRad = 2 * Mathf.PI / atoms.Count;
         float angle = evenSpacingRad * atomIndex;
         float xPos = radius * Mathf.Cos(angle);
+        if (_usingHand) xPos += handMenuShift;
         float zPos = radius * Mathf.Sin(angle);
         atom.transform.localPosition = new Vector3(xPos, height, zPos);
     }
@@ -87,8 +100,6 @@ public class MenuManager : MonoBehaviour
     private void spawnAtom(GameObject atom, Vector3 worldPos)
     {
         var atomDataName = atom.GetComponent<Atom>().atomData.name;
-        Debug.Log($"spawning atom {atomDataName} at {worldPos}");
-
         int atomIndex = atoms.FindIndex(a =>
             a.GetComponent<Atom>().atomData.name == atomDataName);
 
@@ -106,5 +117,14 @@ public class MenuManager : MonoBehaviour
     {
         isMenuOpen = !isMenuOpen;
         menuObject.SetActive(isMenuOpen);
+        _usingHand = false;
+        SetAtomPos();
+    }
+    public void toggleHand()
+    {
+        isMenuOpen = !isMenuOpen;
+        menuObject.SetActive(isMenuOpen);
+        _usingHand = true;
+        SetAtomPos();
     }
 }
