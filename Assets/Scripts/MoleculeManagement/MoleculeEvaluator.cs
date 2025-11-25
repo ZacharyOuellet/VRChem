@@ -14,6 +14,8 @@ public class MoleculeEvaluator : MonoBehaviour
     
     public AudioClip SuccessClip;
     private AudioSource audioPlayer;
+    
+    public ParticleSystem SuccessParticle;
 
     public String ObjectiveMoleculeName { get { return ObjectiveMoleculeDatas[currentObjectiveMolecule].Name; } }
     public String ObjectiveMoleculeDescription { get { return ObjectiveMoleculeDatas[currentObjectiveMolecule].Description; } }
@@ -51,6 +53,12 @@ public class MoleculeEvaluator : MonoBehaviour
             {
                 audioPlayer.PlayOneShot(SuccessClip);
             }
+
+            if (SuccessParticle)
+            {
+                SuccessParticle.Play();
+            }
+            
             StartCoroutine(SuccessSequence());
         }
     }
