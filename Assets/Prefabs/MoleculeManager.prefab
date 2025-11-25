@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406209879b464f342bbccd6f20d4bbf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _repulsionStrength: 0.05
-  _minDistance: 0.2
+  _repulsionStrength: 0.001
+  _minDistance: 0.6
 --- !u!114 &1881633663669413963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350c1cc672ffb484ab7ac3d174efc5e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startingMolecule: {fileID: 11400000, guid: dc802a8bc0845e8449e29b2d2bc2b2a9, type: 2}
+  _startingMolecule: {fileID: 11400000, guid: 074168e935400b643ae992e25a26c9d0, type: 2}
   _atomA: {fileID: 0}
   _atomB: {fileID: 0}
   _createLink: 0

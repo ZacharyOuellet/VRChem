@@ -294,8 +294,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spring: 100
   damper: 10
-  minDistance: 0.1
-  maxDistance: 0.1
+  minDistance: 0.09
+  maxDistance: 0.11
   tolerance: 0.01
   anchor: {x: 0, y: 0, z: 0}
 --- !u!54 &460693287287487968
@@ -307,7 +307,7 @@ Rigidbody:
   m_GameObject: {fileID: 3617730721322200431}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 1
+  m_Drag: 1.2
   m_AngularDrag: 1
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
