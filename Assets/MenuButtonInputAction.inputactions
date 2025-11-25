@@ -3,7 +3,7 @@
     "name": "MenuButtonInputAction",
     "maps": [
         {
-            "name": "New action map",
+            "name": "OpenMenuMap",
             "id": "8d6cd6c4-97bf-4037-9f38-3c804d77d07e",
             "actions": [
                 {
@@ -30,8 +30,8 @@
                 },
                 {
                     "name": "",
-                    "id": "ee3a819e-c2b5-450c-b047-09a88afda5ef",
-                    "path": "<XRController>{LeftHand}/{PinchTouched}",
+                    "id": "7133f3c1-a4f9-4e4f-80c5-8e9145094136",
+                    "path": "<XRController>{LeftHand}/{PrimaryButton}",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
