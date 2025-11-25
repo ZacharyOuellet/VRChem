@@ -10,6 +10,7 @@ public class MoleculeEvaluator : MonoBehaviour
     private int currentObjectiveMolecule;
 
     public String ObjectiveMoleculeName { get { return ObjectiveMoleculeDatas[currentObjectiveMolecule].Name; } }
+    public String ObjectiveMoleculeDescription { get { return ObjectiveMoleculeDatas[currentObjectiveMolecule].Description; } }
 
     private void Start()
     {
