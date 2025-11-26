@@ -269,6 +269,46 @@ PrefabInstance:
       propertyPath: SuccessParticle
       value: 
       objectReference: {fileID: 1944286121}
+    - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: ObjectiveMoleculeDatas.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: 'ObjectiveMoleculeDatas.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 3394ac746f27d8041937dc7fcfec6b69, type: 2}
+    - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: 'ObjectiveMoleculeDatas.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 4ab7164c28468f94ea0f12bddf58fe15, type: 2}
+    - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: 'ObjectiveMoleculeDatas.Array.data[3]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 2287be2e9da387e4eb0b6437b7140f5e, type: 2}
+    - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: 'ObjectiveMoleculeDatas.Array.data[4]'
+      value: 
+      objectReference: {fileID: 11400000, guid: bb1ef7ea503267442ac39de974fa800f, type: 2}
+    - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: 'ObjectiveMoleculeDatas.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b21ee70648bd9c499b387a4f76ddbcb, type: 2}
+    - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: 'ObjectiveMoleculeDatas.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d919e3638ef6be45929d0375a4ea0ba, type: 2}
+    - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: 'ObjectiveMoleculeDatas.Array.data[7]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 29adcfbaef6023141a2c0a348b6cd4fa, type: 2}
+    - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: 'ObjectiveMoleculeDatas.Array.data[8]'
+      value: 
+      objectReference: {fileID: 11400000, guid: dd9c321c9ce64ee4fb7ecee6710ddc92, type: 2}
+    - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: 'ObjectiveMoleculeDatas.Array.data[9]'
+      value: 
+      objectReference: {fileID: 11400000, guid: b17da5db66d5f0a47a70c299e2853f1b, type: 2}
     - target: {fileID: 8572297802860022059, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
       propertyPath: DirectedPtrEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 

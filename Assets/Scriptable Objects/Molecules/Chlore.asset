@@ -16,6 +16,6 @@ MonoBehaviour:
   Name: Chlore
   Description: Cl2
   Sprite: {fileID: 0}
-  Atomes:
-  - {fileID: 11400000, guid: d5140e051614dac4fbd4998ef324da63, type: 2}
-  - {fileID: 11400000, guid: d5140e051614dac4fbd4998ef324da63, type: 2}
+  Atoms:
+  - atomData: {fileID: 11400000, guid: d5140e051614dac4fbd4998ef324da63, type: 2}
+    count: 2

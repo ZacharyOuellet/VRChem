@@ -16,6 +16,6 @@ MonoBehaviour:
   Name: "Dioxyg\xE8ne"
   Description: O2
   Sprite: {fileID: 0}
-  Atomes:
-  - {fileID: 11400000, guid: 4d588f6b6ddc5af4ea78ff412f6fad0c, type: 2}
-  - {fileID: 11400000, guid: 4d588f6b6ddc5af4ea78ff412f6fad0c, type: 2}
+  Atoms:
+  - atomData: {fileID: 11400000, guid: 4d588f6b6ddc5af4ea78ff412f6fad0c, type: 2}
+    count: 2
