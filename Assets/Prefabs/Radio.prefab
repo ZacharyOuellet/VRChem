@@ -227,6 +227,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2577548232221058511, guid: 60de271d4bcbe1f4aa41a447629decae, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.64099836
+      objectReference: {fileID: 0}
+    - target: {fileID: -2577548232221058511, guid: 60de271d4bcbe1f4aa41a447629decae, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.1915609
+      objectReference: {fileID: 0}
+    - target: {fileID: -2577548232221058511, guid: 60de271d4bcbe1f4aa41a447629decae, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.73006105
+      objectReference: {fileID: 0}
+    - target: {fileID: -2577548232221058511, guid: 60de271d4bcbe1f4aa41a447629decae, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.13941489
+      objectReference: {fileID: 0}
+    - target: {fileID: -2577548232221058511, guid: 60de271d4bcbe1f4aa41a447629decae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 2.408
+      objectReference: {fileID: 0}
+    - target: {fileID: -2577548232221058511, guid: 60de271d4bcbe1f4aa41a447629decae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 98.018
+      objectReference: {fileID: 0}
+    - target: {fileID: -2577548232221058511, guid: 60de271d4bcbe1f4aa41a447629decae, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 27.312
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 60de271d4bcbe1f4aa41a447629decae, type: 3}
       propertyPath: m_Name
       value: radioModel
