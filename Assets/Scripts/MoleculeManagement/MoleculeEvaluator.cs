@@ -28,21 +28,7 @@ public class MoleculeEvaluator : MonoBehaviour
 
     private void EvaluateMolecule(HashSet<Atom> Molecule)
     {
-        Dictionary<String, int> atoms = new Dictionary<String, int>();
-        foreach (var atom in Molecule)
-        {
-            string id = atom.atomData.ID;
-            if (atoms.ContainsKey(id))
-            {
-                atoms[id]++;
-            }
-            else
-            {
-                atoms.Add(id, 1);
-            }
-        }
-
-        if (TestMolecule(atoms, ObjectiveMoleculeDatas[currentObjectiveMolecule]))
+        if (TestMolecule(Molecule, ObjectiveMoleculeDatas[currentObjectiveMolecule]))
         {
             Debug.Log("Success");
             currentObjectiveMolecule++;
@@ -77,7 +63,36 @@ public class MoleculeEvaluator : MonoBehaviour
         moleculeManager.DestroyAllMolecules();
     }
 
-    private bool TestMolecule(Dictionary<String, int> atomsTested, MoleculeData ObjectiveMolecule)
+    private bool TestMolecule(HashSet<Atom> Molecule, MoleculeData ObjectiveMolecule)
+    {
+        Dictionary<String, int> atomsDict = new Dictionary<String, int>();
+        List<Atom> atomsList = new List<Atom>();
+        foreach (var atom in Molecule)
+        {
+            string id = atom.atomData.ID;
+            if (atomsDict.ContainsKey(id))
+            {
+                atomsDict[id]++;
+            }
+            else
+            {
+                atomsDict.Add(id, 1);
+            }
+            atomsList.Add(atom);
+        }
+        
+        if (TestAtomsCount(atomsDict, ObjectiveMolecule))
+        {
+            if (TestAtomsBonds(atomsList))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private bool TestAtomsCount(Dictionary<String, int> atomsTested, MoleculeData ObjectiveMolecule)
     {
         // Create objective dictionnary 
         Dictionary<String, int> objectiveAtomsData = new Dictionary<String, int>();
@@ -114,4 +129,16 @@ public class MoleculeEvaluator : MonoBehaviour
         return true;
     }
 
+    private bool TestAtomsBonds(List<Atom> atoms)
+    {
+        foreach (Atom atom in atoms)
+        {
+            if (MoleculeGraph.Instance.BondsCount(atom) != atom.atomData.Connections)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    
 }

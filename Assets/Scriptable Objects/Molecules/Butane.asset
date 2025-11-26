@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 436b2f3e8f74f124990d10f150b2e17f, type: 3}
-  m_Name: Ammoniac
+  m_Name: Butane
   m_EditorClassIdentifier: 
-  m_ID: ac2d3feb-ba0f-4e67-ab72-a5b6aa0c211b
-  Name: Ammoniac
-  Description: NH3
+  m_ID: 1075264e-eabc-44a2-a432-42bfb1de151f
+  Name: Butane
+  Description: C4H10
   Sprite: {fileID: 0}
   Atoms:
-  - atomData: {fileID: 11400000, guid: 1ad163cedb93fb748817f86e34b7e074, type: 2}
-    count: 1
+  - atomData: {fileID: 11400000, guid: e5fed23c26d82b347a0497a805347104, type: 2}
+    count: 4
   - atomData: {fileID: 11400000, guid: 85f9a95459f48534aaf286d5aa221cfc, type: 2}
-    count: 3
+    count: 10
