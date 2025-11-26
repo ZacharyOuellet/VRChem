@@ -274,29 +274,33 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
-      propertyPath: 'ObjectiveMoleculeDatas.Array.data[1]'
+      propertyPath: 'ObjectiveMoleculeDatas.Array.data[0]'
       value: 
       objectReference: {fileID: 11400000, guid: 3394ac746f27d8041937dc7fcfec6b69, type: 2}
     - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
-      propertyPath: 'ObjectiveMoleculeDatas.Array.data[2]'
+      propertyPath: 'ObjectiveMoleculeDatas.Array.data[1]'
       value: 
       objectReference: {fileID: 11400000, guid: 4ab7164c28468f94ea0f12bddf58fe15, type: 2}
     - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
-      propertyPath: 'ObjectiveMoleculeDatas.Array.data[3]'
+      propertyPath: 'ObjectiveMoleculeDatas.Array.data[2]'
       value: 
       objectReference: {fileID: 11400000, guid: 2287be2e9da387e4eb0b6437b7140f5e, type: 2}
     - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
-      propertyPath: 'ObjectiveMoleculeDatas.Array.data[4]'
+      propertyPath: 'ObjectiveMoleculeDatas.Array.data[3]'
       value: 
       objectReference: {fileID: 11400000, guid: bb1ef7ea503267442ac39de974fa800f, type: 2}
     - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
-      propertyPath: 'ObjectiveMoleculeDatas.Array.data[5]'
+      propertyPath: 'ObjectiveMoleculeDatas.Array.data[4]'
       value: 
       objectReference: {fileID: 11400000, guid: 7b21ee70648bd9c499b387a4f76ddbcb, type: 2}
     - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
-      propertyPath: 'ObjectiveMoleculeDatas.Array.data[6]'
+      propertyPath: 'ObjectiveMoleculeDatas.Array.data[5]'
       value: 
       objectReference: {fileID: 11400000, guid: 8d919e3638ef6be45929d0375a4ea0ba, type: 2}
+    - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: 'ObjectiveMoleculeDatas.Array.data[6]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 1cb73eec92e7fa84aa3148e1dfd74d17, type: 2}
     - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
       propertyPath: 'ObjectiveMoleculeDatas.Array.data[7]'
       value: 
@@ -309,6 +313,10 @@ PrefabInstance:
       propertyPath: 'ObjectiveMoleculeDatas.Array.data[9]'
       value: 
       objectReference: {fileID: 11400000, guid: b17da5db66d5f0a47a70c299e2853f1b, type: 2}
+    - target: {fileID: 5985315239485364902, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
+      propertyPath: _startingMolecule
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8572297802860022059, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
       propertyPath: DirectedPtrEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -473,6 +481,10 @@ PrefabInstance:
     - target: {fileID: 4204466563303995764, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
       propertyPath: '_interactors.Array.data[0]'
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975157480313619670, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6202478999215596479, guid: d9c8d15ba6f39b24a8f3a486b45c7c05, type: 3}
       propertyPath: '_gameObjects.Array.data[0]'
