@@ -420,10 +420,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
-      propertyPath: SuccessClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 4e05fae0d790de94ca755f5930934642, type: 3}
-    - target: {fileID: 3667317703408265062, guid: 85ef4b5b2b7fc6a47bb2882620f9369e, type: 3}
       propertyPath: SuccessParticle
       value: 
       objectReference: {fileID: 6695243363035246857}
@@ -691,10 +687,6 @@ PrefabInstance:
     - target: {fileID: 2517779407240992823, guid: e47a6abefd3164640be9ace50d9c8465, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4123952882266649634, guid: e47a6abefd3164640be9ace50d9c8465, type: 3}
-      propertyPath: m_Volume
-      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 7322953422426710950, guid: e47a6abefd3164640be9ace50d9c8465, type: 3}
       propertyPath: m_Name
