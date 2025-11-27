@@ -1,7 +1,6 @@
 # VRChem - Apprendre la chimie moléculaire en réalité virtuelle
 
 ![Banner](README_content/banner.jpg)
-<!-- AJOUTER: Image principale du projet montrant l'environnement VR avec des molécules -->
 
 ## Table des matières
 
@@ -28,8 +27,6 @@ Les méthodes traditionnelles utilisent des schémas plats et des équations abs
 L'application propose aux utilisateurs d'assembler, manipuler et transformer des molécules en utilisant huit atomes de base.
 Nous avons privilégié une approche ludique et intuitive en mettant l'accent sur l'engagement et le plaisir d'expérimenter avec les molécules.
 
-![Demo](README_content/manettes.mp4)
-<!-- AJOUTER: GIF ou vidéo de démonstration générale de l'application -->
 ## Problématique et solution
 
 ### Le défi
@@ -48,8 +45,7 @@ Notre application permet de transformer l'apprentissage de la chimie moléculair
 
 ### Manipulation des atomes et molécules
 
-![Manipulation](path/to/manipulation.gif)
-<!-- AJOUTER: Vidéo montrant la manipulation de base des atomes -->
+![Manipulation](README_content/manipulation.gif)
 
 L'utilisateur peut saisir des atomes individuels et les manipuler dans l'espace 3D.
 Chaque atome affiche un compteur indiquant le nombre de liaisons possibles, qui se met à jour automatiquement lors de la création de liens.
@@ -57,9 +53,7 @@ Les couleurs des atomes aident à bien différencier les éléments chimiques.
 
 ### Liaisons chimiques
 
-![Liaisons](path/to/bonds.gif)
-<!-- AJOUTER: Vidéo démontrant la création de liaisons entre atomes -->
-
+![Liaisons](README_content/links.GIF)
 Pour créer des liaisons, l'utilisateur approche simplement deux atomes compatibles.
 Le système évalue automatiquement si une liaison est possible en fonction du nombre de liaisons disponibles pour chaque atome.
 Des retours haptiques et visuels confirment la création réussie d'une liaison.
@@ -68,23 +62,18 @@ Les utilisateurs peuvent briser des liaisons existantes en étirant la molécule
 
 ### Menu d'inventaire
 
-![Menu](path/to/inventory.png)
-<!-- AJOUTER: Image du menu d'inventaire avec les différents atomes disponibles -->
+![Menu](README_content/menu.GIF)
 
 Un menu intuitif accessible par le bouton "X" permet de faire apparaître de nouveaux atomes dans l'espace de travail.
 Les huit atomes de base sont disponibles à tout moment, permettant une expérimentation libre et créative.
 
 ### Système de niveaux et objectifs
 
-![Objectifs](path/to/objectives.png)
-<!-- AJOUTER: Image du tableau affichant les objectifs -->
-
 Chaque niveau présente un objectif spécifique, comme créer de l'eau (H₂O) en assemblant 2 atomes d'hydrogène et 1 atome d'oxygène.
 
 ### Corbeille (trou noir)
 
-![Corbeille](path/to/trash.png)
-<!-- AJOUTER: Image ou vidéo de la corbeille en action -->
+![Corbeille](README_content/delete.GIF)
 
 Suite aux retours des tests utilisateurs, nous avons ajouté une corbeille sous forme de trou noir pour supprimer les atomes indésirables.
 Cette fonctionnalité répond à un besoin identifié lors des tests de jouabilité.
@@ -109,8 +98,7 @@ Nous avons utilisé les Building Blocks fournis par Meta XR pour implémenter ce
 
 #### Support des manettes et des mains
 
-![Hand Tracking](path/to/hands.gif)
-<!-- AJOUTER: Vidéo montrant l'utilisation avec les mains sans manettes -->
+![Hand Tracking](README_content/hands.GIF)
 
 L'application se joue aussi sans manettes.
 Nous avons ajouté des gestes personnalisés pour faire apparaître le menu et la corbeille, permettant une interaction naturelle avec les mains seules.
@@ -124,9 +112,6 @@ Nous avons jugé que le déplacement par téléportation n'était pas pertinent 
 Cette œillère apparaît automatiquement lorsque l'utilisateur effectue un déplacement par joystick ou une rotation horizontale de la caméra.
 
 #### Audio spatial
-
-![Radio](path/to/radio.png)
-<!-- AJOUTER: Image de la radio avec effet audio spatial -->
 
 Le système d'audio spatial permet de faire provenir du son d'un endroit précis dans l'environnement virtuel.
 Cette technologie est utilisée notamment pour la radio qui donne les instructions, créant une expérience immersive où le son semble réellement provenir d'un objet dans l'espace 3D.
@@ -143,9 +128,6 @@ Cet outil a permis d'opérer facilement sur une seule machine et de pouvoir test
 Au total, cinq tests ont été effectués en bâtissant le projet et l'envoyant sur le casque en mode développeur.
 
 ## Tests utilisateurs
-
-![Tests](path/to/user-tests.jpg)
-<!-- AJOUTER: Photos des sessions de tests utilisateurs -->
 
 Nous avons procédé à plusieurs phases de tests avec des utilisateurs pour recevoir des commentaires constructifs.
 Ces tests ont été essentiels au développement et nous ont permis d'identifier plusieurs améliorations importantes.
@@ -181,9 +163,6 @@ Il aurait toutefois aimé un peu plus de retours audio sur certaines actions, te
 ## Résultats
 
 ### Ce qui fonctionne bien
-
-![Physics](path/to/physics.gif)
-<!-- AJOUTER: Vidéo montrant la physique des molécules et leur comportement -->
 
 Plusieurs utilisateurs ont déclaré trouver l'expérience ludique et intuitive.
 Ils ont eu du plaisir à simplement manipuler les molécules, qui possèdent une physique de rebondissement qu'ils ont appréciée.
