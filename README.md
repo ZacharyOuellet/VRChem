@@ -1,6 +1,6 @@
 # VRChem - Apprendre la chimie moléculaire en réalité virtuelle
 
-![Banner](path/to/banner-image.png)
+![Banner](README_content/banner.jpg)
 <!-- AJOUTER: Image principale du projet montrant l'environnement VR avec des molécules -->
 
 ## Table des matières
@@ -28,9 +28,8 @@ Les méthodes traditionnelles utilisent des schémas plats et des équations abs
 L'application propose aux utilisateurs d'assembler, manipuler et transformer des molécules en utilisant huit atomes de base.
 Nous avons privilégié une approche ludique et intuitive en mettant l'accent sur l'engagement et le plaisir d'expérimenter avec les molécules.
 
-![Demo](path/to/demo.gif)
+![Demo](README_content/manettes.mp4)
 <!-- AJOUTER: GIF ou vidéo de démonstration générale de l'application -->
-
 ## Problématique et solution
 
 ### Le défi
@@ -81,7 +80,6 @@ Les huit atomes de base sont disponibles à tout moment, permettant une expérim
 <!-- AJOUTER: Image du tableau affichant les objectifs -->
 
 Chaque niveau présente un objectif spécifique, comme créer de l'eau (H₂O) en assemblant 2 atomes d'hydrogène et 1 atome d'oxygène.
-Une radio informe le joueur de la tâche à accomplir, avec la possibilité de rejouer le message si nécessaire.
 
 ### Corbeille (trou noir)
 
