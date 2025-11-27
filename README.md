@@ -281,7 +281,6 @@ Le projet ouvre la voie à de futures itérations qui pourraient transformer l'o
 
 ## Liens
 
-- **Dépôt GitHub**: [https://github.com/ZacharyOuellet/VRChem](https://github.com/ZacharyOuellet/VRChem)
 - **Télécharger l'APK**: [Version 1.0](https://github.com/ZacharyOuellet/VRChem/releases/tag/v1.0)
 - **Documentation Meta XR**: [Meta XR SDK](https://developer.oculus.com/)
 
